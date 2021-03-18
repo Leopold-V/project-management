@@ -1,14 +1,21 @@
-import app, { auth } from './firebase';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { auth } from './firebase';
+
+import { Login } from './components/pages/Login';
+import { Register } from './components/pages/Register';
 
 function App() {
 
-  const handleLogin = () => {
-    console.log(auth.signInWithEmailAndPassword('test@gmail.com', 'testtest'));
-  }
-
   return (
     <div className="App">
-      <button onClick={handleLogin}>Test</button>
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Login}/>
+          <Route exact path='/login' component={Login}/>
+          <Route exact path='/register' component={Register}/>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }
