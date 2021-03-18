@@ -28,14 +28,8 @@ export const Login = () => {
           success: () => {
             return 'Successfully Login 🔥';
           },
-          error: (err) => err.message,
+          error: (err) => { return err.message },
         },
-        {
-          style: {
-              minWidth: '250px',
-              marginBottom: '3rem',
-          }
-        }
       );
     }
     if (!log.email) {
@@ -48,7 +42,7 @@ export const Login = () => {
 
   useEffect(() => {
     ref_log.current.focus();
-  }, [log.email])
+  }, [log.email]);
 
   return (
     <Container>
@@ -82,10 +76,10 @@ export const Login = () => {
           }} 
       />
       <ContainerForm>
-      <Toaster
-        position="bottom-center"
-        reverseOrder={true}
-      />
+        <Toaster
+          position="bottom-center"
+          reverseOrder={true}
+        />
         <BlockLeft >
           <TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
           <img width='110' src='./tasks.svg' alt='tasks_image' />

@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import { auth } from './firebase';
 import store from './store';
 
-import { setUser } from './slices/user';
-
 import { Home } from './components/pages/Home';
 import { Login } from './components/pages/Login';
 import { Register } from './components/pages/Register';
@@ -14,19 +12,26 @@ import { Register } from './components/pages/Register';
 function App() {
 
   const [currentUser, setcurrentUser] = useState(false);
+  const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setcurrentUser(user.email);
-        store.dispatch(setUser((user.email)));
+        setLoading(false);
       } else {
         setcurrentUser(false);
-        store.dispatch(setUser((null)));
+        setLoading(false);
       }
 		})
 		return unsubscribe;
 	}, []);
+
+  if (loading) {
+    return (
+      <div>Loading application...</div>
+    )
+  }
 
   return (
     <Provider store={store}>

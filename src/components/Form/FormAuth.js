@@ -58,6 +58,7 @@ export const Form = styled.form`
   transition: all 0.2s 0.7s;
   @media (max-width: 868px) {
     width: 90%;
+    margin-top: 0;
   }
 `
 
@@ -124,6 +125,7 @@ export const WrapperTitle = styled.div`
   z-index: 9999;
   @media (max-width: 868px) {
     position: relative;
+    top: 0;
     background-color: white;
     color: black;
     transform: translateY(0%);
