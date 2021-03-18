@@ -37,7 +37,7 @@ export const BlockLeft = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0 2rem;
   border-right: 2px solid #ddd;
   @media (max-width: 868px) {
@@ -47,38 +47,57 @@ export const BlockLeft = styled.div`
 `
 
 export const Form = styled.form`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 50%;
   padding: 0 1rem;
+  margin-top: 2rem;
   justify-content: center;
   transition: all 0.2s 0.7s;
-  overflow: hidden;
   @media (max-width: 868px) {
-    width: 100%;
+    width: 90%;
   }
 `
 
-export const Button = styled(Link)`
+export const Button = styled.button`
   text-align: center;
   padding: .8rem 2.2rem;
   background-color: #5995fd;
-  border: none;
+  border: 2px solid transparent;
   outline: none;
-  border-radius: 49px;
+  border-radius: 5px;
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
-  margin: 10px 0;
+  margin: 1rem 0;
   text-decoration: none;
   cursor: pointer;
-  transition: 0.5s;
+  transition: .3s;
+  &:hover {
+    background-color: #4d84e2;
+  }
+`
+
+export const ButtonLink = styled(Link)`
+  text-align: center;
+  padding: .8rem 2.2rem;
+  background-color: #5995fd;
+  border: 2px solid transparent;
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 1rem 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .3s;
   &:hover {
     background-color: #4d84e2;
   }
   &.transparent {
-    margin: 0;
     background: white;
     color: #5995fd;
     border: 2px solid #5995fd;
@@ -89,26 +108,42 @@ export const Button = styled(Link)`
 export const TitleMain = styled.h1`
   font-size: 2.2rem;
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 2rem;
   font-weight: 900;
   text-align: center;
 `
 
+export const WrapperTitle = styled.div`
+  position: absolute;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  padding: 0 3rem;
+  top: -6rem;
+  transform: translateY(-10%);
+  z-index: 9999;
+  @media (max-width: 868px) {
+    position: relative;
+    background-color: white;
+    color: black;
+    transform: translateY(0%);
+  }
+`
+
 export const Title = styled.h2`
   font-size: 2.2rem;
-  color: #444;
-  margin-bottom: 10px;
 `
 
 export const InputGroup = styled.div`
   max-width: 380px;
-  width: 100%;
+  width: 90%;
   background-color: #f0f0f0;
   margin: 10px 0;
-  border-radius: 55px;
+  border-radius: 5px;
   display: grid;
   grid-template-columns: 15% 85%;
   position: relative;
+  padding: 0 1rem;
 `
 
 export const Input = styled.input`
