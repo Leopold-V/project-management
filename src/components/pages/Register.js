@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { Button, BlockLeft, Container, ContainerForm, Form, Icon, Input, InputGroup, Title, TitleMain } from '../Form/FormAuth';
+import { Button, BlockLeft, Container, ContainerForm, Form, Icon, Input, InputGroup, ParticlesStyled, Title, TitleMain } from '../Form/FormAuth';
 
 export const Register = () => {
     return (
@@ -9,7 +9,7 @@ export const Register = () => {
 					<BlockLeft >
 						<TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
 						<h2>Already member ?</h2>
-						<Button to='/login' className="transparent">Sign in</Button>
+						<Button to={'/login'} className="transparent">Sign in</Button>
 					</BlockLeft>
 					<Form>
 						<Title>Sign in</Title>

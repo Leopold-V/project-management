@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Particles from 'react-particles-js';
 
 export const Container = styled.div`
   position: relative;
   width: 100%;
-  background-color: #31006e;
+  background-color: #0a0040;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +21,7 @@ export const ContainerForm = styled.div`
   padding: 2rem 0;
   display: flex; 
   justify-content: start;
+  z-index: 1000;
   @media (max-width: 1200px) {
     width: 80%;
   }
@@ -121,15 +123,22 @@ export const Input = styled.input`
     color: #666;
     font-weight: 500;
   }
-  &:hover {
-    
-  }
 `
 
 export const Icon = styled.i`
   text-align: center;
   line-height: 55px;
-  color: #acacac;
+  color: #666;
   transition: 0.5s;
   font-size: 1.1rem;
+`
+
+export const ParticlesStyled = styled(Particles)`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `
