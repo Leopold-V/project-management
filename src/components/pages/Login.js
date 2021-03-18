@@ -34,7 +34,6 @@ export const Login = () => {
           style: {
               minWidth: '250px',
               marginBottom: '3rem',
-
           }
         }
       );

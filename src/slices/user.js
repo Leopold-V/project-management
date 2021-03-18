@@ -1,13 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-import { auth } from '../firebase';
-
-export const getUser = createAsyncThunk(
-    'user/getUser',
-    async () => {
-        console.log(auth.currentUser);
-    }
-)
+import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
     name: 'user',
@@ -39,18 +30,6 @@ export const userSlice = createSlice({
         }
     },
     extraReducers: {
-        [getUser.pending]: (state) => {
-            state.inProgress = true;
-        },
-        [getUser.fulfilled]: (state, action) => {
-            state.auth = true;
-            state.inProgress = false;
-            state.user = action.payload;
-        },
-        [getUser.rejected]: (state) => {
-            state.inProgress = false;
-            state.error = 'No user authenticated';
-        }
     }
 });
 
