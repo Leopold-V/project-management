@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import Particles from 'react-particles-js';
 
 export const Container = styled.div`
@@ -63,25 +62,6 @@ export const Form = styled.form`
 `
 
 export const Button = styled.button`
-  text-align: center;
-  padding: .8rem 2.2rem;
-  background-color: #5995fd;
-  border: 2px solid transparent;
-  outline: none;
-  border-radius: 5px;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin: 1rem 0;
-  text-decoration: none;
-  cursor: pointer;
-  transition: .3s;
-  &:hover {
-    background-color: #4d84e2;
-  }
-`
-
-export const ButtonLink = styled(Link)`
   text-align: center;
   padding: .8rem 2.2rem;
   background-color: #5995fd;

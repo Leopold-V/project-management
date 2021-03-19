@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { auth } from '../../firebase';
 
-import { ButtonLink, Container, ContainerForm, BlockLeft, Form, TitleMain, Button, InputGroup, Input, Icon, ParticlesStyled, WrapperTitle } from '../Form/FormAuth';
+import { Container, ContainerForm, BlockLeft, Form, TitleMain, Button, InputGroup, Input, Icon, ParticlesStyled, WrapperTitle } from '../Form/FormAuth';
 
 export const Login = () => {
+
+  let history = useHistory();
 
   const ref_input = useRef(null);
 
@@ -13,6 +16,10 @@ export const Login = () => {
     email: '',
     password: ''
   });
+
+  const switchToRegister = () => {
+    history.push('/register');
+  };
 
   const handleChange = (e) => {
     setinput({...input, [e.target.name]: e.target.value});
@@ -51,7 +58,7 @@ export const Login = () => {
           <TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
           <img width='110' src='./tasks.svg' alt='tasks_image' />
           <h2>Are you new here ?</h2>
-          <ButtonLink to={'/register'} className="transparent">New account</ButtonLink>
+          <Button onClick={switchToRegister} className="transparent">New account</Button>
         </BlockLeft>
         <Form onSubmit={handleSubmit}>
           <WrapperTitle>
