@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import { auth } from './firebase';
@@ -8,6 +8,8 @@ import store from './store';
 import { Home } from './components/pages/Home';
 import { Login } from './components/pages/Login';
 import { Register } from './components/pages/Register';
+import { Project } from './components/pages/Project';
+import { Layout } from './components/layout/Layout';
 
 function App() {
 
@@ -18,11 +20,10 @@ function App() {
 		const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         setcurrentUser(user.email);
-        setLoading(false);
       } else {
         setcurrentUser(false);
-        setLoading(false);
       }
+      setLoading(false);
 		})
 		return unsubscribe;
 	}, []);
@@ -36,11 +37,14 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Switch>
-          <Route exact path='/' render={() => currentUser ? <Home /> : <Login />}/>
-          <Route exact path='/login' render={() => currentUser ? <Home /> : <Login />}/>
-          <Route exact path='/register' render={() => currentUser ? <Home /> : <Register />}/>
-        </Switch>
+        <Layout>
+          <Switch>
+            <Route exact path='/' render={() => currentUser ? <Home /> : <Redirect to='/login' />}/>
+            <Route path='/login' render={() => currentUser ? <Redirect to='/' /> : <Login />}/>
+            <Route path='/register' render={() => currentUser ? <Redirect to='/' /> : <Register />}/>
+            <Route path='/:id' render={(props) => currentUser ? <Project {...props} /> : <Redirect to='/login' />}/>
+          </Switch>
+        </Layout>
       </BrowserRouter>
     </Provider>
   );
