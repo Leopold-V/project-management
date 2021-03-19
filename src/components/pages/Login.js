@@ -7,85 +7,46 @@ import { ButtonLink, Container, ContainerForm, BlockLeft, Form, TitleMain, Butto
 
 export const Login = () => {
 
-  const ref_log = useRef(null);
+  const ref_input = useRef(null);
 
-  const [log, setlog] = useState({
+  const [input, setinput] = useState({
     email: '',
     password: ''
   });
 
   const handleChange = (e) => {
-    setlog({...log, [e.target.name]: e.target.value});
+    setinput({...input, [e.target.name]: e.target.value});
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (log.email && log.password) {
-      toast.promise(
-        auth.signInWithEmailAndPassword(log.email, log.password), 
-        {
-          loading: 'Loading',
-          success: () => {
-            return 'Successfully Login 🔥';
-          },
-          error: (err) => { return err.message },
-        },
-        {
-          className: 'alert',
-        }
-      );
-    }
-    if (!log.email) {
-      toast.error('Please provide an email address');
+    if (!input.email) {
+      return toast.error('Please provide an email address');
     } 
-    if (!log.password) {
-      toast.error('Please provide a password');
+    if (!input.password) {
+      return toast.error('Please provide a password');
     }
+    toast.promise(
+      auth.signInWithEmailAndPassword(input.email, input.password), 
+      {
+        loading: 'Loading',
+        success: () => 'Successfully Login 🔥',
+        error: err => { return err.message },
+      }
+    );
   };
 
   useEffect(() => {
-    ref_log.current.focus();
-  }, [log.email]);
+    ref_input.current.focus();
+  }, [input.email]);
 
   return (
     <Container>
       <ParticlesStyled
-          params={{
-            "particles": {
-                "number": {
-                    "value": 160,
-                    "density": {
-                        "enable": false
-                    }
-                },
-                "size": {
-                    "value": 4,
-                    "random": true,
-                    "anim": {
-                        "speed": 4,
-                        "size_min": 0.3
-                    }
-                },
-                "line_linked": {
-                    "enable": false
-                },
-                "move": {
-                    "random": true,
-                    "speed": 1,
-                    "direction": "top",
-                    "out_mode": "out"
-                }
-            },
-          }} 
+        params={particleParams} 
       />
       <ContainerForm>
-        <Toaster
-          position="bottom-center"
-          reverseOrder={true}
-          toastOptions={{
-            className: 'alert',
-          }}
-        />
+        <Toaster position="bottom-center" reverseOrder={true} />
         <BlockLeft >
           <TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
           <img width='110' src='./tasks.svg' alt='tasks_image' />
@@ -98,15 +59,43 @@ export const Login = () => {
           </WrapperTitle>
           <InputGroup>
             <Icon className="fas fa-user"></Icon>
-            <Input ref={ref_log} type="text" name="email" placeholder="Email" onChange={handleChange} value={log.email} />
+            <Input ref={ref_input} type="text" name="email" placeholder="Email" onChange={handleChange} value={input.email} />
           </InputGroup>
           <InputGroup>
             <Icon className="fas fa-lock"></Icon>
-            <Input type="password" name="password" placeholder="Password" onChange={handleChange} value={log.password} />
+            <Input type="password" name="password" placeholder="Password" onChange={handleChange} value={input.password} />
           </InputGroup>
           <Button>Login</Button>
         </Form>
       </ContainerForm>
     </Container>
   )
+}
+
+const particleParams = {
+  "particles": {
+      "number": {
+          "value": 160,
+          "density": {
+              "enable": false
+          }
+      },
+      "size": {
+          "value": 4,
+          "random": true,
+          "anim": {
+              "speed": 4,
+              "size_min": 0.3
+          }
+      },
+      "line_linked": {
+          "enable": false
+      },
+      "move": {
+          "random": true,
+          "speed": 1,
+          "direction": "top",
+          "out_mode": "out"
+      }
+  },
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { auth, db } from '../../firebase';
+import { auth } from '../../firebase';
 
 export const Home = () => {
 
@@ -8,11 +8,13 @@ export const Home = () => {
 	};
 
 	const getData = () => {
-		db.collection("projects").get().then((querySnapshot) => {
+		const user = auth.currentUser;
+		//console.log(user.uid, user.email, user.displayName);
+		/*db.collection("projects").get().then((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
 				console.log(doc.data());
 			});
-		});
+		});*/
 	};
 
 	return (

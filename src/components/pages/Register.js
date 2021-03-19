@@ -7,112 +7,107 @@ import { Button, ButtonLink, BlockLeft, Container, ContainerForm, Form, Icon, In
 
 export const Register = () => {
 
-    const ref_log = useRef(null);
+  const ref_input = useRef(null);
 
-    const [log, setlog] = useState({
-      email: '',
-      password: '',
-      passwordConfirm: ''
-    });
-  
-    const handleChange = (e) => {
-      setlog({...log, [e.target.name]: e.target.value});
-    };
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (log.email && log.password && log.passwordConfirm) {
-        if (log.password !== log.passwordConfirm) {
-            return toast.error('Your password and confirm password are not equal !');
-        }
-        toast.promise(
-          auth.createUserWithEmailAndPassword(log.email, log.password), 
-          {
-            loading: 'Loading',
-            success: () => {
-              return 'Successfully Login 🔥';
-            },
-            error: (err) => err.message,
+  const [input, setinput] = useState({
+    email: '',
+    password: '',
+    passwordConfirm: ''
+  });
+
+  const handleChange = (e) => {
+    setinput({...input, [e.target.name]: e.target.value});
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!input.email) {
+      return toast.error('Please provide an email address');
+    } 
+    if (!input.password) {
+      return toast.error('Please provide a password');
+    }
+    if (!input.passwordConfirm) {
+      return toast.error('Please confirm your password');
+    }
+    if (input.password !== input.passwordConfirm) {
+      return toast.error('Your password and confirm password are not equal !');
+    }
+    toast.promise(
+      auth.createUserWithEmailAndPassword(input.email, input.password), 
+      {
+        loading: 'Loading',
+        success: () => 'Successfully Login 🔥',
+        error: err => err.message,
+      }
+    );
+  };
+
+  useEffect(() => {
+    ref_input.current.focus();
+  }, [input.email]);
+
+  return (
+    <Container>
+      <ParticlesStyled
+        params={particleParams} 
+      />
+      <ContainerForm>
+        <Toaster position="bottom-center" reverseOrder={true} />
+        <BlockLeft >
+          <TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
+          <img width='110' src='./tasks.svg' alt='tasks_image' />
+          <h2>Already member ?</h2>
+          <ButtonLink to={'/login'} className="transparent">login</ButtonLink>
+        </BlockLeft>
+        <Form onSubmit={handleSubmit}>
+          <WrapperTitle>
+            <h1>Sign up</h1>
+          </WrapperTitle>
+          <InputGroup>
+            <Icon className="fas fa-user"></Icon>
+            <Input ref={ref_input} type="text" name="email" placeholder="Email" onChange={handleChange} value={input.email} />
+          </InputGroup>
+          <InputGroup>
+            <Icon className="fas fa-lock"></Icon>
+            <Input type="password" name="password" placeholder="Password" onChange={handleChange} value={input.password} />
+          </InputGroup>
+          <InputGroup>
+            <Icon className="fas fa-lock"></Icon>
+            <Input type="password" name="passwordConfirm" placeholder="Confirm your password" onChange={handleChange} value={input.passwordConfirm} />
+          </InputGroup>
+          <Button>Sign up</Button>
+        </Form>
+      </ContainerForm>
+    </Container>
+  )
+}
+
+const particleParams = {
+  "particles": {
+      "number": {
+          "value": 160,
+          "density": {
+              "enable": false
           }
-        );
+      },
+      "size": {
+          "value": 4,
+          "random": true,
+          "anim": {
+              "speed": 4,
+              "size_min": 0.3
+          }
+      },
+      "line_linked": {
+          "enable": false
+      },
+      "move": {
+          "random": true,
+          "speed": 1,
+          "direction": "top",
+          "out_mode": "out"
       }
-      if (!log.email) {
-        toast.error('Please provide an email address');
-      } 
-      if (!log.password) {
-        toast.error('Please provide a password');
-      }
-      if (!log.passwordConfirm) {
-        toast.error('Please confirm your password');
-      }
-    };
-  
-    useEffect(() => {
-      ref_log.current.focus();
-    }, [log.email]);
-
-    return (
-			<Container>
-			<ParticlesStyled
-                params={{
-                "particles": {
-                    "number": {
-                        "value": 160,
-                        "density": {
-                            "enable": false
-                        }
-                    },
-                    "size": {
-                        "value": 4,
-                        "random": true,
-                        "anim": {
-                            "speed": 4,
-                            "size_min": 0.3
-                        }
-                    },
-                    "line_linked": {
-                        "enable": false
-                    },
-                    "move": {
-                        "random": true,
-                        "speed": 1,
-                        "direction": "top",
-                        "out_mode": "out"
-                    }
-                },
-                }} 
-            />
-				<ContainerForm>
-                    <Toaster
-                        position="bottom-center"
-                        reverseOrder={true}
-                    />
-					<BlockLeft >
-						<TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
-						<img width='110' src='./tasks.svg' alt='tasks_image' />
-						<h2>Already member ?</h2>
-						<ButtonLink to={'/login'} className="transparent">Login</ButtonLink>
-					</BlockLeft>
-					<Form onSubmit={handleSubmit}>
-                        <WrapperTitle>
-						    <h1>Sign up</h1>
-                        </WrapperTitle>
-                        <InputGroup>
-                            <Icon className="fas fa-user"></Icon>
-                            <Input ref={ref_log} type="text" name="email" placeholder="Email" onChange={handleChange} value={log.email} />
-                        </InputGroup>
-                        <InputGroup>
-                            <Icon className="fas fa-lock"></Icon>
-                            <Input type="password" name="password" placeholder="Password" onChange={handleChange} value={log.password} />
-                        </InputGroup>
-                        <InputGroup>
-                            <Icon className="fas fa-lock"></Icon>
-                            <Input type="password" name="passwordConfirm" placeholder="Confirm your password" onChange={handleChange} value={log.passwordConfirm} />
-                        </InputGroup>
-						<Button>Sign up</Button>
-					</Form>
-				</ContainerForm>
-			</Container>
-  	)
+  },
 }
 
