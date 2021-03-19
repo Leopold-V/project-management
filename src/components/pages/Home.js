@@ -1,5 +1,8 @@
 import React from 'react';
+
 import { auth } from '../../firebase';
+
+import { Container } from '../Home/Container';
 
 export const Home = () => {
 
@@ -18,10 +21,10 @@ export const Home = () => {
 	};
 
 	return (
-		<div>
-			Home page
+		<Container>
+			<h1>Home page</h1>
 			<button onClick={getData}>Get data</button>
 			<button onClick={logout}>Logout</button>
-		</div>
+		</Container>
 	);
 };
