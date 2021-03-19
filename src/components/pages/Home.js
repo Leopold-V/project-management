@@ -1,13 +1,11 @@
-import React, { useEffect } from 'react';
-import app from '../../firebase';
+import React from 'react';
 import { auth, db } from '../../firebase';
-
 
 export const Home = () => {
 
 	function logout() {
 		auth.signOut();
-	}
+	};
 
 	const getData = () => {
 		db.collection("projects").get().then((querySnapshot) => {
@@ -15,17 +13,7 @@ export const Home = () => {
 				console.log(doc.data());
 			});
 		});
-	}
-
-	useEffect(() => {
-		/*
-		let projectRef = app.database().ref("users");
-		projectRef.on('value', (snapshot) => {
-			const data = snapshot.val();
-			console.log(data);
-		});*/
-
-	}, [])
+	};
 
 	return (
 		<div>
@@ -33,5 +21,5 @@ export const Home = () => {
 			<button onClick={getData}>Get data</button>
 			<button onClick={logout}>Logout</button>
 		</div>
-	)
+	);
 };

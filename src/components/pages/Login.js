@@ -30,6 +30,9 @@ export const Login = () => {
           },
           error: (err) => { return err.message },
         },
+        {
+          className: 'alert',
+        }
       );
     }
     if (!log.email) {
@@ -79,6 +82,9 @@ export const Login = () => {
         <Toaster
           position="bottom-center"
           reverseOrder={true}
+          toastOptions={{
+            className: 'alert',
+          }}
         />
         <BlockLeft >
           <TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
