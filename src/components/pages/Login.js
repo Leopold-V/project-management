@@ -4,7 +4,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import { auth } from '../../firebase';
 
-import { Container, ContainerForm, BlockLeft, Form, TitleMain, Button, InputGroup, Input, Icon, ParticlesStyled, WrapperTitle } from '../Form/FormAuth';
+import { Container, ContainerForm } from '../Container';
+import { BlockLeft, Form, TitleMain, Button, InputGroup, Input, Icon, ParticlesStyled, WrapperTitle } from '../Form/FormAuth';
 
 export const Login = () => {
 

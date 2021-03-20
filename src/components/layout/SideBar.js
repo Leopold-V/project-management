@@ -21,12 +21,12 @@ export const SideBar = () => {
 					<NavTitle>Main</NavTitle>
 					<NavItem>
 						<ButtonLink light exact to="/" activeClassName="active">
-							<i className="fas fa-home" style={{marginRight: '.2rem'}}></i>&nbsp;Overview
+							<i className="fas fa-home"></i>&nbsp;Overview
 						</ButtonLink>
 					</NavItem>
 					<NavItem>
 						<ButtonLink light to="/profile" activeClassName="active">
-							<i className="fas fa-cog" style={{marginRight: '.2rem'}}></i>&nbsp;Profile
+							<i className="fas fa-cog"></i>&nbsp;Profile
 						</ButtonLink>
 					</NavItem>
 				</NavList>
@@ -44,7 +44,6 @@ export const SideBar = () => {
 const NavTitle = styled.h3`
 	margin-bottom: .5rem 0;
 	color: white;
-
 `
 
 const NavItem = styled.li`
@@ -63,7 +62,7 @@ const NavList = styled.ul`
 const Title = styled.h1`
     font-weight: 900;
     font-size: 2rem;
-	padding: .5rem 0;
+	padding: .9rem 0;
 	text-align: center;
 	cursor: pointer;
     & > span {

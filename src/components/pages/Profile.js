@@ -2,16 +2,16 @@ import React from 'react'
 
 import { auth } from '../../firebase';
 
-import { Container } from '../Container';
+import { ContainerSection } from '../Container';
 
 export const Profile = () => {
     return (
-        <Container>
-            Profile page
+        <ContainerSection>
+            <h2>Profile page</h2>
             <ul>
-                <li>{auth.currentUser.email}</li>
                 <li>{auth.currentUser.uid}</li>
+                <li>{auth.currentUser.email}</li>
             </ul>
-        </Container>
+        </ContainerSection>
     )
 }

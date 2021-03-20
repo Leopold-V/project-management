@@ -1,36 +1,6 @@
 import styled from 'styled-components';
 import Particles from 'react-particles-js';
 
-export const Container = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  overflow: hidden;
-`
-
-export const ContainerForm = styled.div`
-  background: white;
-  width: 65%;
-  border-radius: 5px;
-  padding: 2rem 0;
-  display: flex; 
-  justify-content: start;
-  z-index: 1000;
-  color: black;
-  @media (max-width: 1200px) {
-    width: 80%;
-  }
-  @media (max-width: 868px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`
-
 export const BlockLeft = styled.div`
   width: 50%;
   display: flex;

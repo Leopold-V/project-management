@@ -4,7 +4,8 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import { auth } from '../../firebase';
 
-import { Button, BlockLeft, Container, ContainerForm, Form, Icon, Input, InputGroup, ParticlesStyled, TitleMain, WrapperTitle } from '../Form/FormAuth';
+import { Container, ContainerForm } from '../Container';
+import { Button, BlockLeft, Form, Icon, Input, InputGroup, ParticlesStyled, TitleMain, WrapperTitle } from '../Form/FormAuth';
 
 export const Register = () => {
 
