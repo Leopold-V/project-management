@@ -10,6 +10,7 @@ import { Login } from './components/pages/Login';
 import { Register } from './components/pages/Register';
 import { Project } from './components/pages/Project';
 import { Layout } from './components/layout/Layout';
+import { Profile } from './components/pages/Profile';
 
 function App() {
 
@@ -42,7 +43,8 @@ function App() {
             <Route exact path='/' render={() => currentUser ? <Home /> : <Redirect to='/login' />}/>
             <Route path='/login' render={() => currentUser ? <Redirect to='/' /> : <Login />}/>
             <Route path='/register' render={() => currentUser ? <Redirect to='/' /> : <Register />}/>
-            <Route path='/:id' render={(props) => currentUser ? <Project {...props} /> : <Redirect to='/login' />}/>
+            <Route path='/project/:id' render={(props) => currentUser ? <Project {...props} /> : <Redirect to='/login' />}/>
+            <Route path='/profile' render={() => currentUser ? <Profile /> : <Redirect to='/login' />}/>
           </Switch>
         </Layout>
       </BrowserRouter>

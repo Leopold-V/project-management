@@ -17,7 +17,7 @@ export const Login = () => {
     password: ''
   });
 
-  const switchToRegister = () => {
+  const redirectToRegister = () => {
     history.push('/register');
   };
 
@@ -55,10 +55,10 @@ export const Login = () => {
       <ContainerForm>
         <Toaster position="bottom-center" reverseOrder={true} />
         <BlockLeft >
-          <TitleMain>Welcome on <span style={{color: '#4d84e2'}}>ReactProject</span></TitleMain>
+          <TitleMain>Welcome on <span style={{color: '#46cf7a'}}>OpenBoard</span></TitleMain>
           <img width='110' src='./tasks.svg' alt='tasks_image' />
           <h2>Are you new here ?</h2>
-          <Button onClick={switchToRegister} className="transparent">New account</Button>
+          <Button onClick={redirectToRegister} className="transparent">New account</Button>
         </BlockLeft>
         <Form onSubmit={handleSubmit}>
           <WrapperTitle>

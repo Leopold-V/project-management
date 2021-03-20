@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { auth } from '../../firebase';
+//import { auth } from '../../firebase';
 
-import { Container } from '../Home/Container';
+import { Container } from '../Container';
 
 export const Home = () => {
-
-	function logout() {
-		auth.signOut();
-	};
 
 	const getData = () => {
 		//const user = auth.currentUser;
@@ -24,7 +20,6 @@ export const Home = () => {
 		<Container>
 			<h1>Home page</h1>
 			<button onClick={getData}>Get data</button>
-			<button onClick={logout}>Logout</button>
 		</Container>
 	);
 };

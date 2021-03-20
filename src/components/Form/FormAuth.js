@@ -65,7 +65,7 @@ export const Form = styled.form`
 export const Button = styled.button`
   text-align: center;
   padding: .8rem 2.2rem;
-  background-color: #5995fd;
+  background-color: #01b075;
   border: 2px solid transparent;
   outline: none;
   border-radius: 5px;
@@ -77,12 +77,12 @@ export const Button = styled.button`
   cursor: pointer;
   transition: .3s;
   &:hover {
-    background-color: #4d84e2;
+    opacity: 0.8;
   }
   &.transparent {
     background: white;
-    color: #5995fd;
-    border: 2px solid #5995fd;
+    color: #01b075;
+    border: 2px solid #01b075;
     font-weight: 600;
   }
 `

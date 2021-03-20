@@ -1,16 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 import { auth } from '../../firebase';
 
-import { ButtonSmall } from '../Button/Button';
+import { ButtonSmall } from '../Button';
 import { Search } from '../Search/Search';
 
 export const Headbar = () => {
 
+    let history = useHistory();
+
     const handleSearch = () => {
         alert('TODO')
     }
+
+    const redirectToProfile = () => {
+        history.push('/profile');
+    };
 
     const handleLogout = () => {
         auth.signOut();
@@ -20,13 +27,14 @@ export const Headbar = () => {
         <Wrapper>
             <Search parentsubmit={handleSearch} width='17rem' />
             <User>
-                <div>test@test.com</div>
-                <ButtonSmall><i className="fas fa-user-edit"></i></ButtonSmall>
+                <Email>test@test.com</Email>
+                <ButtonSmall onClick={redirectToProfile}><i className="fas fa-user-edit"></i></ButtonSmall>
                 <ButtonSmall onClick={handleLogout}><i className="fas fa-sign-out-alt "></i></ButtonSmall>
             </User>
         </Wrapper>
     )
 }
+
 
 const User = styled.div`
     display: flex;
@@ -37,6 +45,10 @@ const User = styled.div`
     & > div {
         margin: 0 .5rem;
     }
+`
+
+const Email = styled.div`
+
 `
 
 const Wrapper = styled.div`
