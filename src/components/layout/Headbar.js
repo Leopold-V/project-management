@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { auth } from '../../firebase';
 
 import { ButtonSmall } from '../Button';
+import { ContainerHeadBar } from '../Container';
 import { Search } from '../Search/Search';
 
 export const Headbar = () => {
@@ -24,17 +25,16 @@ export const Headbar = () => {
     }
 
     return (
-        <Wrapper>
-            <Search parentsubmit={handleSearch} width='17rem' />
+        <ContainerHeadBar>
+            <Search parentsubmit={handleSearch} width='17rem' /> {/*bind data*/}
             <User>
-                <Email>test@test.com</Email>
+                <div>test@test.com</div> {/*bind data*/}
                 <ButtonSmall onClick={redirectToProfile}><i className="fas fa-user-edit"></i></ButtonSmall>
                 <ButtonSmall onClick={handleLogout}><i className="fas fa-sign-out-alt "></i></ButtonSmall>
             </User>
-        </Wrapper>
+        </ContainerHeadBar>
     )
 }
-
 
 const User = styled.div`
     display: flex;
@@ -45,19 +45,4 @@ const User = styled.div`
     & > div {
         margin: 0 .5rem;
     }
-`
-
-const Email = styled.div`
-
-`
-
-const Wrapper = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 5rem;
-    border-radius: 5px;
-    margin: 1rem 1.3rem;
-    padding: 0 2rem;
-    background-color: #1c1b20;
 `

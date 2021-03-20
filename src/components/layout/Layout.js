@@ -1,8 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
 
-import { Main } from './Main';
+import { ContainerLayout, ContainerMain } from '../Container';
 import { Headbar } from './Headbar';
 import { SideBar } from './SideBar';
 
@@ -16,18 +15,12 @@ export const Layout = ({children}) => {
 		);
 	}
 	return (
-		<Container>
+		<ContainerLayout>
 			<SideBar />
-			<Main>
+			<ContainerMain>
 				<Headbar />
 				{children}
-			</Main>
-		</Container>
+			</ContainerMain>
+		</ContainerLayout>
 	)
 }
-
-const Container = styled.div`
-    display: flex;
-    justify-content: start;
-    min-height: 100vh;
-`
