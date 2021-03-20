@@ -4,7 +4,6 @@ import Particles from 'react-particles-js';
 export const Container = styled.div`
   position: relative;
   width: 100%;
-  background-color: #0a0040;
   display: flex;
   flex-direction: column;
   justify-content: center;

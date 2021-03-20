@@ -1,32 +1,39 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { ButtonLink } from '../Button';
 
 export const SideBar = () => {
 
+	let history = useHistory();
+
+	const reloadPage = () => {
+		history.go('/');
+	}
+
 	return (
 		<Wrapper>
-			<Title>Open<span>Board</span></Title>
+			<Title onClick={reloadPage}>Open<span>Board</span></Title>
 			<Nav>
 				<NavList>
 					<NavTitle>Main</NavTitle>
 					<NavItem>
-						<ButtonLink exact to='/' activeClassName="active">
+						<ButtonLink light exact to='/' activeClassName="active">
 							<i className="fas fa-home" style={{marginRight: '.2rem'}}></i>&nbsp;Overview
 						</ButtonLink>
 					</NavItem>
 					<NavItem>
-						<ButtonLink to='/profile' activeClassName="active">
+						<ButtonLink light to='/profile' activeClassName="active">
 							<i className="fas fa-cog" style={{marginRight: '.2rem'}}></i>&nbsp;Profile
 						</ButtonLink>
 					</NavItem>
 				</NavList>
 				<NavList>
 					<NavTitle>Projects</NavTitle>
-					<NavItem><ButtonLink to={'/project/ReactPhotos'} activeClassName="active">ReactPhotos</ButtonLink></NavItem>
-					<NavItem><ButtonLink to={'/project/Urls'} activeClassName="active">Urls shortener</ButtonLink></NavItem>
-					<NavItem><ButtonLink to={'/project/Movie'} activeClassName="active">Movie app</ButtonLink></NavItem>
+					<NavItem><ButtonLink light to={'/project/ReactPhotos'} activeClassName="active">ReactPhotos</ButtonLink></NavItem>
+					<NavItem><ButtonLink light to={'/project/Urls'} activeClassName="active">Urls shortener</ButtonLink></NavItem>
+					<NavItem><ButtonLink light to={'/project/Movie'} activeClassName="active">Movie app</ButtonLink></NavItem>
 				</NavList>
 			</Nav>
 		</Wrapper>
@@ -57,6 +64,7 @@ const Title = styled.div`
     font-size: 2rem;
 	padding: 2rem 0;
 	text-align: center;
+	cursor: pointer;
     & > span {
         color: #46cf7a;
     }
