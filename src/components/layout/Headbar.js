@@ -1,16 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button } from '../Button/Button';
+import { auth } from '../../firebase';
+
+import { ButtonSmall } from '../Button/Button';
+import { Search } from '../Search/Search';
 
 export const Headbar = () => {
+
+    const handleSearch = () => {
+        alert('TODO')
+    }
+
+    const handleLogout = () => {
+        auth.signOut();
+    }
+
     return (
         <Wrapper>
-            <Title>Open<span>Board</span></Title>
+            <Search parentsubmit={handleSearch} width='17rem' />
             <User>
                 <div>test@test.com</div>
-                <Button><i class="fas fa-user-edit"></i></Button>
-                <Button><i class="fas fa-sign-out-alt "></i></Button>
+                <ButtonSmall><i className="fas fa-user-edit"></i></ButtonSmall>
+                <ButtonSmall onClick={handleLogout}><i className="fas fa-sign-out-alt "></i></ButtonSmall>
             </User>
         </Wrapper>
     )
@@ -19,13 +31,11 @@ export const Headbar = () => {
 const User = styled.div`
     display: flex;
     align-items: center;
-`
-
-const Title = styled.div`
-    font-weight: 900;
-    font-size: 1.5rem;
-    & > span {
-        color: #46cf7a;
+    & > button {
+        margin: 0 .5rem;
+    }
+    & > div {
+        margin: 0 .5rem;
     }
 `
 
@@ -33,8 +43,9 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 4rem;
-    border-radius: 8px;
+    min-height: 5rem;
+    border-radius: 5px;
+    margin: 1rem 1.3rem;
     padding: 0 2rem;
     background-color: #1c1b20;
 `

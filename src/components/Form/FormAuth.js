@@ -21,6 +21,7 @@ export const ContainerForm = styled.div`
   display: flex; 
   justify-content: start;
   z-index: 1000;
+  color: black;
   @media (max-width: 1200px) {
     width: 80%;
   }
@@ -68,7 +69,7 @@ export const Button = styled.button`
   border: 2px solid transparent;
   outline: none;
   border-radius: 5px;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
   font-weight: 600;
   margin: 1rem 0;
