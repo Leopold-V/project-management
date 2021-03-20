@@ -18,6 +18,10 @@ export const Home = () => {
 		});
 	};*/
 
+	const addProject = () => {
+		alert('TODO');
+	}
+
 	return (
 		<ContainerSection>
 			<h2>Home</h2>
@@ -25,7 +29,7 @@ export const Home = () => {
 				<Card>
 					<h4>Create a new project</h4>
 					<p>A new project is add to your dashboard, fill informations, track and manage your tasks list.</p>
-					<Button><i class="fas fa-plus-circle"></i>&nbsp;Create</Button>
+					<Button onClick={addProject}><i class="fas fa-plus-circle"></i>&nbsp;Create</Button>
 				</Card>
 				<Card>
 					<h4>Do you need inspiration ?</h4>
@@ -37,26 +41,10 @@ export const Home = () => {
 			</ContainerCard>
 			<h3>Your project(s) :</h3>
 			<ContainerCard> {/* bind data */}
-				<CardProject>
-					<h4>Url shortener</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis bibendum purus. Curabitur molestie, urna mattis venenatis volutpat, enim nisl molestie quam, vitae vehicula nisi justo ac quam. Vestibulum condimentum luctus turpis, ut facilisis dui aliquet dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae</p>
-					<Button className="transparent">Open</Button>
-				</CardProject>
-				<CardProject>
-					<h4>React photo</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis primis in faucibus orci luctus et ultrices posuere cubilia curae</p>
-					<Button className="transparent">Open</Button>
-				</CardProject>
-				<CardProject>
-					<h4>Movie app</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque purus. Curabitur molestie, urna mattis venenatis volutpat, enim nisl molestie quam, vitae vehicula nisi. Vestibulum condimentum luctus turpis, ut facilisis dui aliquet dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae</p>
-					<Button className="transparent">Open</Button>
-				</CardProject>
-				<CardProject>
-					<h4>Movie app</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque purus. Curabitur molestie, urna mattis venenatis volutpat, enim nisl molestie quam, vitae vehicula nisi. Vestibulum condimentum luctus turpis, ut facilisis dui aliquet dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae</p>
-					<Button className="transparent">Open</Button>
-				</CardProject>
+				<CardProject />
+				<CardProject />
+				<CardProject />
+				<CardProject />
 			</ContainerCard>
 		</ContainerSection>
 	);
