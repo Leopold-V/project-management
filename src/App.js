@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import { auth } from './firebase';
 import store from './store';
+import { fetchProjects } from './slices/projects';
 
 import { Home } from './components/pages/Home';
 import { Login } from './components/pages/Login';
@@ -20,6 +21,7 @@ function App() {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setcurrentUser(user.email);
+        store.dispatch(fetchProjects(user));
       } else {
         setcurrentUser(false);
       }

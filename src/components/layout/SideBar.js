@@ -21,12 +21,12 @@ export const SideBar = () => {
         <NavList>
           <NavTitle>Main</NavTitle>
           <NavItem>
-            <ButtonLink light exact to="/" activeClassName="active">
+            <ButtonLink light="true" exact to="/" activeClassName="active">
               <i className="fas fa-home"></i>&nbsp;Overview
             </ButtonLink>
           </NavItem>
           <NavItem>
-            <ButtonLink light to="/profile" activeClassName="active">
+            <ButtonLink light="true" to="/profile" activeClassName="active">
               <i className="fas fa-cog"></i>&nbsp;Profile
             </ButtonLink>
           </NavItem>
@@ -36,17 +36,17 @@ export const SideBar = () => {
           {/*bind data*/}
           <NavTitle>Projects</NavTitle>
           <NavItem>
-            <ButtonLink light to={'/project/ReactPhotos'} activeClassName="active">
+            <ButtonLink light="true" to={'/project/ReactPhotos'} activeClassName="active">
               ReactPhotos
             </ButtonLink>
           </NavItem>
           <NavItem>
-            <ButtonLink light to={'/project/Urls'} activeClassName="active">
+            <ButtonLink light="true" to={'/project/Urls'} activeClassName="active">
               Urls shortener
             </ButtonLink>
           </NavItem>
           <NavItem>
-            <ButtonLink light to={'/project/Movie'} activeClassName="active">
+            <ButtonLink light="true" to={'/project/Movie'} activeClassName="active">
               Movie app
             </ButtonLink>
           </NavItem>

@@ -57,7 +57,7 @@ export const ContainerCard = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: start;
+  justify-content: center;
   margin: 2rem 0;
 `;
 

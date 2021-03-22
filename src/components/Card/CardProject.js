@@ -3,16 +3,11 @@ import styled from 'styled-components';
 
 import { Button } from '../Button';
 
-export const CardProject = ({ title, description }) => {
+export const CardProject = ({ name, resume, tech }) => {
   return (
     <Wrapper>
-      <h4>Url shortener</h4>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque quis bibendum purus. Curabitur molestie, urna
-        mattis venenatis volutpat, enim nisl molestie quam, vitae vehicula nisi justo ac quam. Vestibulum condimentum
-        luctus turpis, ut facilisis dui aliquet dictum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-        posuere cubilia curae
-      </p>
+      <h4>Test</h4>
+      <p>hbcjzdbvsbkz</p>
       <Button className="transparent">Open</Button>
     </Wrapper>
   );

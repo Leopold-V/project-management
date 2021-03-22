@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+//import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { Button } from '../Button';
 
-export const CardTask = ({ title, task }) => {
+export const CardTask = ({ title, id }) => {
   const addTask = () => {
     alert('TODO');
   };
@@ -15,12 +15,13 @@ export const CardTask = ({ title, task }) => {
         <h4>Todo</h4>
       </CardHeader>
       <CardBody>
+        {/* bind data */}
         <Item>Project page</Item>
         <Item>Profile to complete</Item>
         <Item>Redux firebase data</Item>
       </CardBody>
-      <Button onClick={addTask} className="transparent">
-        <i class="fas fa-plus-circle fa-2x"></i>
+      <Button light={false} onClick={addTask} className="transparent">
+        <i className="fas fa-plus-circle fa-2x"></i>
       </Button>
     </Wrapper>
   );
