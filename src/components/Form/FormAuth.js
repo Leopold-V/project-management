@@ -13,7 +13,7 @@ export const BlockLeft = styled.div`
     width: 100%;
     border: none;
   }
-`
+`;
 
 export const Form = styled.form`
   position: relative;
@@ -29,11 +29,11 @@ export const Form = styled.form`
     width: 90%;
     margin-top: 0;
   }
-`
+`;
 
 export const Button = styled.button`
   text-align: center;
-  padding: .8rem 2.2rem;
+  padding: 0.8rem 2.2rem;
   background-color: #01b075;
   border: 2px solid transparent;
   outline: none;
@@ -44,7 +44,7 @@ export const Button = styled.button`
   margin: 1rem 0;
   text-decoration: none;
   cursor: pointer;
-  transition: .3s;
+  transition: 0.3s;
   &:hover {
     opacity: 0.8;
   }
@@ -54,7 +54,7 @@ export const Button = styled.button`
     border: 2px solid #01b075;
     font-weight: 600;
   }
-`
+`;
 
 export const TitleMain = styled.h1`
   font-size: 2.2rem;
@@ -62,7 +62,7 @@ export const TitleMain = styled.h1`
   margin-bottom: 2rem;
   font-weight: 900;
   text-align: center;
-`
+`;
 
 export const WrapperTitle = styled.div`
   position: absolute;
@@ -80,11 +80,11 @@ export const WrapperTitle = styled.div`
     color: black;
     transform: translateY(0%);
   }
-`
+`;
 
 export const Title = styled.h2`
   font-size: 2.2rem;
-`
+`;
 
 export const InputGroup = styled.div`
   max-width: 380px;
@@ -96,7 +96,7 @@ export const InputGroup = styled.div`
   grid-template-columns: 15% 85%;
   position: relative;
   padding: 0 1rem;
-`
+`;
 
 export const Input = styled.input`
   background: none;
@@ -110,7 +110,7 @@ export const Input = styled.input`
     color: #666;
     font-weight: 500;
   }
-`
+`;
 
 export const Icon = styled.i`
   text-align: center;
@@ -118,7 +118,7 @@ export const Icon = styled.i`
   color: #666;
   transition: 0.5s;
   font-size: 1.1rem;
-`
+`;
 
 export const ParticlesStyled = styled(Particles)`
   position: absolute;
@@ -128,4 +128,4 @@ export const ParticlesStyled = styled(Particles)`
   @media (max-width: 1000px) {
     display: none;
   }
-`
+`;

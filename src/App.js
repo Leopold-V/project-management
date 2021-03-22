@@ -13,26 +13,23 @@ import { Layout } from './components/layout/Layout';
 import { Profile } from './components/pages/Profile';
 
 function App() {
-
   const [currentUser, setcurrentUser] = useState(false);
   const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(user => {
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setcurrentUser(user.email);
       } else {
         setcurrentUser(false);
       }
       setLoading(false);
-		})
-		return unsubscribe;
-	}, []);
+    });
+    return unsubscribe;
+  }, []);
 
   if (loading) {
-    return (
-      <div>Loading application...</div>
-    )
+    return <div>Loading application...</div>;
   }
 
   return (
@@ -40,11 +37,14 @@ function App() {
       <BrowserRouter>
         <Layout>
           <Switch>
-            <Route exact path='/' render={() => currentUser ? <Home /> : <Redirect to='/login' />}/>
-            <Route path='/login' render={() => currentUser ? <Redirect to='/' /> : <Login />}/>
-            <Route path='/register' render={() => currentUser ? <Redirect to='/' /> : <Register />}/>
-            <Route path='/project/:id' render={(props) => currentUser ? <Project {...props} /> : <Redirect to='/login' />}/>
-            <Route path='/profile' render={() => currentUser ? <Profile /> : <Redirect to='/login' />}/>
+            <Route exact path="/" render={() => (currentUser ? <Home /> : <Redirect to="/login" />)} />
+            <Route path="/login" render={() => (currentUser ? <Redirect to="/" /> : <Login />)} />
+            <Route path="/register" render={() => (currentUser ? <Redirect to="/" /> : <Register />)} />
+            <Route
+              path="/project/:id"
+              render={(props) => (currentUser ? <Project {...props} /> : <Redirect to="/login" />)}
+            />
+            <Route path="/profile" render={() => (currentUser ? <Profile /> : <Redirect to="/login" />)} />
           </Switch>
         </Layout>
       </BrowserRouter>

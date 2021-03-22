@@ -4,17 +4,18 @@ import { ContainerSection, ContainerCard } from '../Container';
 import { CardTask } from '../Card';
 
 export const Project = (props) => {
+  const id = props.match.params.id;
 
-    const id = props.match.params.id;
-
-    return (
-        <ContainerSection>
-            <h2>Project page {id}</h2>
-            <ContainerCard> {/*Bind data */}
-                <CardTask />
-                <CardTask />
-                <CardTask />
-            </ContainerCard>
-        </ContainerSection>
-    )
-}
+  return (
+    <ContainerSection>
+      <h2>Project page {id}</h2>
+      <ContainerCard>
+        {' '}
+        {/*Bind data */}
+        <CardTask />
+        <CardTask />
+        <CardTask />
+      </ContainerCard>
+    </ContainerSection>
+  );
+};

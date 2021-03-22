@@ -1,36 +1,35 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export const userSlice = createSlice({
-    name: 'user',
-    initialState : {
+  name: 'user',
+  initialState: {
+    auth: false,
+    loading: true,
+    inProgress: false,
+    user: null,
+    error: '',
+  },
+  reducers: {
+    logoutUser: () => {
+      return {
         auth: false,
-        loading: true,
+        loading: false,
         inProgress: false,
         user: null,
-        error: ''
+        error: '',
+      };
     },
-    reducers: {
-        logoutUser: () => {
-            return {
-                auth: false,
-                loading: false,
-                inProgress: false,
-                user: null,
-                error: ''
-            };
-        },
-        setUser: (state, action) => {
-            return {
-                auth: false,
-                loading: false,
-                inProgress: false,
-                user: action.payload,
-                error: ''
-            }
-        }
+    setUser: (state, action) => {
+      return {
+        auth: false,
+        loading: false,
+        inProgress: false,
+        user: action.payload,
+        error: '',
+      };
     },
-    extraReducers: {
-    }
+  },
+  extraReducers: {},
 });
 
 export const { logoutUser, setUser } = userSlice.actions;
