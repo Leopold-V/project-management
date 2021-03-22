@@ -1,12 +1,17 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+
+import { projectsSelector } from '../../slices/projects';
 
 import { ButtonLink } from '../Button';
 import { ContainerSideBar } from '../Container';
 
 export const SideBar = () => {
   let history = useHistory();
+
+  const projects = useSelector(projectsSelector);
 
   const refreshPage = () => {
     history.go('/');
@@ -32,24 +37,16 @@ export const SideBar = () => {
           </NavItem>
         </NavList>
         <NavList>
-          {' '}
-          {/*bind data*/}
           <NavTitle>Projects</NavTitle>
-          <NavItem>
-            <ButtonLink light="true" to={'/project/ReactPhotos'} activeClassName="active">
-              ReactPhotos
-            </ButtonLink>
-          </NavItem>
-          <NavItem>
-            <ButtonLink light="true" to={'/project/Urls'} activeClassName="active">
-              Urls shortener
-            </ButtonLink>
-          </NavItem>
-          <NavItem>
-            <ButtonLink light="true" to={'/project/Movie'} activeClassName="active">
-              Movie app
-            </ButtonLink>
-          </NavItem>
+          {projects.map((ele) => {
+            return (
+              <NavItem key={ele.id}>
+                <ButtonLink light="true" to={'/project/'+ele.id} activeClassName="active">
+                  {ele.name}
+                </ButtonLink>
+              </NavItem>
+            )
+          })}
         </NavList>
       </Nav>
     </ContainerSideBar>

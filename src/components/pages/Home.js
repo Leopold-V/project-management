@@ -1,10 +1,16 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+
+import { projectsSelector } from '../../slices/projects';
 
 import { ContainerSection, ContainerCard } from '../Container';
 import { Card, CardProject } from '../Card';
 import { Button } from '../Button';
 
 export const Home = () => {
+
+  const projects = useSelector(projectsSelector);
+
   const addProject = () => {
     alert('TODO');
   };
@@ -21,7 +27,7 @@ export const Home = () => {
           </Button>
         </Card>
         <Card>
-          <h4>Do you need inspiration ?</h4>
+          <h4>Inspiration</h4>
           <ul>
             <li>
               <a href="https://github.com/florinpop17/app-ideas">florinpop17 project ideas list</a>
@@ -32,9 +38,11 @@ export const Home = () => {
           </ul>
         </Card>
       </ContainerCard>
-      <h3>Your project(s) :</h3>
+      <h3>Your project{projects.length > 0 ? 's' : ''} :</h3>
       <ContainerCard>
-        <CardProject />
+        {projects.map((ele) => {
+          return <CardProject key={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />
+        })}
       </ContainerCard>
     </ContainerSection>
   );

@@ -6,8 +6,8 @@ import { Button } from '../Button';
 export const CardProject = ({ name, resume, tech }) => {
   return (
     <Wrapper>
-      <h4>Test</h4>
-      <p>hbcjzdbvsbkz</p>
+      <h4>{name}</h4>
+      <p>{resume}</p>
       <Button className="transparent">Open</Button>
     </Wrapper>
   );

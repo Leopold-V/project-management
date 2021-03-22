@@ -27,7 +27,6 @@ export const projectSlice = createSlice({
       state.loading = true;
     },
     [fetchProjects.fulfilled]: (state, action) => {
-      console.log(action.payload);
       state.loading = false;
       state.projects = action.payload;
     },
@@ -39,5 +38,7 @@ export const projectSlice = createSlice({
 });
 
 //export const { } = projectSlice.actions;
+
+export const projectsSelector = state => state.projects.projects;
 
 export default projectSlice.reducer;
