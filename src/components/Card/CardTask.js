@@ -16,14 +16,15 @@ export const CardTask = ({ title, tasks }) => {
         <h4>{title}</h4>
       </CardHeader>
       <CardBody>
-        {/* bind data */}
-        <Item>Project page</Item>
-        <Item>Profile to complete</Item>
-        <Item>Redux firebase data</Item>
+        {tasks.map((ele) => (
+          <Item key={ele.id}>{ele.name}</Item>
+        ))}
       </CardBody>
-      <Button light={false} onClick={addTask} className="transparent">
-        <i className="fas fa-plus-circle fa-2x"></i>
-      </Button>
+      <WrapperButton >
+        <Button onClick={addTask} className="transparent">
+          <i className="fas fa-plus-circle fa-2x"></i>
+        </Button>
+      </WrapperButton>
     </Wrapper>
   );
 };
@@ -34,7 +35,6 @@ CardTask.propTypes = {
 }
 
 const CardHeader = styled.div`
-  min-height: 3rem;
   background-color: #01b075;
   text-align: center;
 `;
@@ -56,8 +56,12 @@ const Item = styled.div`
 `;
 
 const CardBody = styled.div`
-  padding: 2rem;
+  padding: 1rem;
 `;
+
+const WrapperButton = styled.div`
+  margin: 1rem auto;
+`
 
 const Wrapper = styled.div`
   background-color: #27262b;
