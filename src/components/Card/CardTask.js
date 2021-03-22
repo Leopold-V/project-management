@@ -28,6 +28,11 @@ export const CardTask = ({ title, tasks }) => {
   );
 };
 
+CardTask.propTypes = {
+  title: PropTypes.string.isRequired,
+  tasks: PropTypes.array.isRequired
+}
+
 const CardHeader = styled.div`
   min-height: 3rem;
   background-color: #01b075;

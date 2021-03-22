@@ -12,9 +12,9 @@ export const Project = (props) => {
       <h2>Project page {id}</h2>
       <ContainerCard>
         {/*Bind data */}
-        <CardTask title="Todo" />
-        <CardTask title="In progress" />
-        <CardTask title="Comleted" />
+        <CardTask title="Todo" tasks={[]} />
+        <CardTask title="In progress" tasks={[]} />
+        <CardTask title="Comleted" tasks={[]} />
       </ContainerCard>
     </ContainerSection>
   );

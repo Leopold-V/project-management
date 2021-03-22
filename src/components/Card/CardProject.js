@@ -8,10 +8,17 @@ export const CardProject = ({ name, resume, tech }) => {
   return (
     <Wrapper>
       <h4>{name}</h4>
+      <div>{tech}</div>
       <p>{resume}</p>
       <Button className="transparent">Open</Button>
     </Wrapper>
   );
+};
+
+CardProject.propTypes = {
+  name: PropTypes.string.isRequired,
+  resume: PropTypes.string.isRequired,
+  tech: PropTypes.string.isRequired,
 };
 
 export const Wrapper = styled.div`
