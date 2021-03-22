@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import { fireEvent, cleanup, render, screen } from '@testing-library/react';
 import 'jest-canvas-mock';
-import { Login } from './Login';
+import { Login } from '../components/pages/Login';
 
 afterEach(cleanup);
 

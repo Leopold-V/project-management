@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 //import { Droppable, Draggable } from 'react-beautiful-dnd';
 
 import { Button } from '../Button';
 
-export const CardTask = ({ title, id }) => {
+export const CardTask = ({ title, tasks }) => {
   const addTask = () => {
     alert('TODO');
   };
@@ -12,7 +13,7 @@ export const CardTask = ({ title, id }) => {
   return (
     <Wrapper>
       <CardHeader>
-        <h4>Todo</h4>
+        <h4>{title}</h4>
       </CardHeader>
       <CardBody>
         {/* bind data */}

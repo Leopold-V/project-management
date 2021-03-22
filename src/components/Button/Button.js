@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const Button = styled.button`
   display: flex;
@@ -26,3 +27,11 @@ export const Button = styled.button`
     box-shadow: 0rem 0rem 0.5rem rgba(70, 207, 122);
   }
 `;
+
+Button.propTypes = {
+  light: PropTypes.bool
+};
+
+Button.defaultTypes = {
+  light: false
+};

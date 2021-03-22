@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const ButtonSmall = styled.button`
   display: flex;
@@ -22,3 +23,11 @@ export const ButtonSmall = styled.button`
     background-color: transparent;
   }
 `;
+
+ButtonSmall.propTypes = {
+  light: PropTypes.bool
+};
+
+ButtonSmall.defaultTypes = {
+  light: false
+};

@@ -26,12 +26,12 @@ export const SideBar = () => {
         <NavList>
           <NavTitle>Main</NavTitle>
           <NavItem>
-            <ButtonLink light="true" exact to="/" activeClassName="active">
+            <ButtonLink $light={true} exact to="/" activeClassName="active">
               <i className="fas fa-home"></i>&nbsp;Overview
             </ButtonLink>
           </NavItem>
           <NavItem>
-            <ButtonLink light="true" to="/profile" activeClassName="active">
+            <ButtonLink $light={true} to="/profile" activeClassName="active">
               <i className="fas fa-cog"></i>&nbsp;Profile
             </ButtonLink>
           </NavItem>
@@ -41,7 +41,7 @@ export const SideBar = () => {
           {projects.map((ele) => {
             return (
               <NavItem key={ele.id}>
-                <ButtonLink light="true" to={'/project/'+ele.id} activeClassName="active">
+                <ButtonLink $light={true} to={'/project/'+ele.id} activeClassName="active">
                   {ele.name}
                 </ButtonLink>
               </NavItem>
