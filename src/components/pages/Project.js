@@ -16,6 +16,7 @@ export const Project = (props) => {
   return (
     <ContainerSection>
       <h2>Project page {projects[0] && projects[0].name}</h2>
+      <p>{projects[0] && projects[0].resume}</p>
       <ContainerCard>
         <CardTask title="Todo" tasks={tasksTodo} />
         <CardTask title="In progress" tasks={tasksInProgress} />
