@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
+import getCurrentUser from '../../utils/user';
 import { auth } from '../../firebase';
 
 import { ButtonSmall } from '../Button';
@@ -27,7 +28,7 @@ export const Headbar = () => {
     <ContainerHeadBar>
       <Search parentsubmit={handleSearch} width="17rem" /> {/*bind data*/}
       <User>
-        <div>{auth.currentUser?.email}</div>
+        <div>{getCurrentUser()?.email}</div>
         <ButtonSmall onClick={redirectToProfile}>
           <i className="fas fa-user-edit"></i>
         </ButtonSmall>

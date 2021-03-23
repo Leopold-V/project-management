@@ -38,13 +38,12 @@ const Input = styled.input`
   outline: none;
   width: 100%;
   font-size: 0.9rem;
-  padding: 0.6rem 1.2rem 0.6rem 1.2rem;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  background-color: #030111;
-  color: white;
-  transition: all 0.2s;
-  &:focus {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 0.6rem 1.2rem 0.5rem 1.2rem;
+  background-color: whitesmoke;
+  color: #333;
+  &::placeholder {
+    color: #666;
+    font-weight: 500;
   }
 `;
 

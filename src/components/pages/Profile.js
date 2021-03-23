@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { auth } from '../../firebase';
+import getCurrentUser from '../../utils/user';
 
 import { ContainerCard, ContainerSection } from '../Container';
 import { Card } from '../Card/Card';
 
 export const Profile = () => {
+  const user = getCurrentUser();
+
   return (
     <ContainerSection>
       <h2>Profile page</h2>
@@ -15,11 +17,11 @@ export const Profile = () => {
           <List>
             <li>
               <span style={{ fontWeight: 'bold' }}>Id : </span>
-              {auth.currentUser.uid}
+              {user.uid}
             </li>
             <li>
               <span style={{ fontWeight: 'bold' }}>Email : </span>
-              {auth.currentUser.email}
+              {user.email}
             </li>
           </List>
         </Card>
