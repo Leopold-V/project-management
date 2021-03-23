@@ -5,17 +5,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import { auth } from '../../firebase';
 
 import { Container, ContainerForm } from '../Container';
-import {
-  BlockLeft,
-  Form,
-  TitleMain,
-  Button,
-  InputGroup,
-  Input,
-  Icon,
-  ParticlesStyled,
-  WrapperTitle,
-} from '../Form/FormAuth';
+import { ParticlesBackground } from '../particles';
+import { BlockLeft, FormAuth, TitleMain, WrapperTitle } from '../Form/FormAuth';
+import { InputGroup, Input, Icon, ButtonForm } from '../Form';
 
 export const Login = () => {
   let history = useHistory();
@@ -58,7 +50,7 @@ export const Login = () => {
 
   return (
     <Container>
-      <ParticlesStyled params={particleParams} />
+      <ParticlesBackground />
       <ContainerForm>
         <Toaster position="bottom-center" reverseOrder={true} />
         <BlockLeft>
@@ -67,11 +59,11 @@ export const Login = () => {
           </TitleMain>
           <img width="110" src="./tasks.svg" alt="tasks_image" />
           <h2>Are you new here ?</h2>
-          <Button onClick={redirectToRegister} className="transparent">
+          <ButtonForm onClick={redirectToRegister} className="transparent">
             New account
-          </Button>
+          </ButtonForm>
         </BlockLeft>
-        <Form onSubmit={handleSubmit}>
+        <FormAuth onSubmit={handleSubmit}>
           <WrapperTitle>
             <h1>Sign in</h1>
           </WrapperTitle>
@@ -96,37 +88,9 @@ export const Login = () => {
               value={input.password}
             />
           </InputGroup>
-          <Button>Login</Button>
-        </Form>
+          <ButtonForm>Login</ButtonForm>
+        </FormAuth>
       </ContainerForm>
     </Container>
   );
-};
-
-const particleParams = {
-  particles: {
-    number: {
-      value: 160,
-      density: {
-        enable: false,
-      },
-    },
-    size: {
-      value: 4,
-      random: true,
-      anim: {
-        speed: 4,
-        size_min: 0.3,
-      },
-    },
-    line_linked: {
-      enable: false,
-    },
-    move: {
-      random: true,
-      speed: 1,
-      direction: 'top',
-      out_mode: 'out',
-    },
-  },
 };
