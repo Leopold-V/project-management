@@ -3,17 +3,19 @@ import { useSelector } from 'react-redux';
 
 import { projectsSelector } from '../../slices/projects';
 
+import { useModal } from '../../hooks/useModal';
+
 import { ContainerSection, ContainerCard } from '../Container';
 import { Card, CardProject } from '../Card';
 import { Button } from '../Button';
+import { Modal } from '../Modal';
+import { FormAddProject } from '../Form';
 
 export const Home = () => {
 
   const projects = useSelector(projectsSelector);
 
-  const addProject = () => {
-    alert('TODO');
-  };
+  const [show, toggle] = useModal();
 
   return (
     <ContainerSection>
@@ -22,7 +24,7 @@ export const Home = () => {
         <Card>
           <h4>Create a new project</h4>
           <p>A new project is add to your dashboard, fill informations, track and manage your tasks list.</p>
-          <Button onClick={addProject}>
+          <Button onClick={toggle}>
             <i className="fas fa-plus-circle"></i>&nbsp;Create
           </Button>
         </Card>
@@ -44,6 +46,12 @@ export const Home = () => {
           return <CardProject key={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />
         })}
       </ContainerCard>
+
+      <Modal show={show} toggle={toggle}>
+        <h2>Add a new project :</h2>
+        <FormAddProject />
+      </Modal>
+
     </ContainerSection>
   );
 };
