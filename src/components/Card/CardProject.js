@@ -32,13 +32,14 @@ export const Wrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 2rem;
-  max-width: 20rem;
+  width: 15rem;
   transition: all 0.3s;
   &:hover {
     border: 2px solid #01b075;
     box-shadow: 0rem 0rem 0.5rem rgba(70, 207, 122);
   }
   & > p {
+    text-align: center;
     max-height: 15rem;
     overflow-y: auto;
     color: #9b9b9b;
