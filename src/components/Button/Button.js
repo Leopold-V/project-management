@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 export const Button = styled.button`
   display: flex;
-  align-items: center;
+
   justify-content: center;
+  text-align: center;
   border: none;
   outline: none;
   border-radius: 5px;
