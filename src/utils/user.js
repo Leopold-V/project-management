@@ -1,7 +1,12 @@
 import { auth } from '../firebase';
 
 const getCurrentUser = () => {
-    return auth.currentUser;
+    const user = auth.currentUser && {
+        email: auth.currentUser.email,
+        uid: auth.currentUser.uid,
+        username: auth.currentUser.displayName
+    };
+    return user;
 }
 
 export default getCurrentUser;

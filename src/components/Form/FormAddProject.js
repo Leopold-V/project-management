@@ -33,7 +33,12 @@ export const FormAddProject = () => {
     if (!input.resume) {
       return toast.error('Please provide a project description');
     }
-    dispatch(fetchAddProject({name: input.name, tech: input.tech, resume: input.resume}))
+    dispatch(fetchAddProject({name: input.name, tech: input.tech, resume: input.resume}));
+    setInput({
+      name : '',
+      tech : '',
+      resume : ''
+    });
   };
 
   return (

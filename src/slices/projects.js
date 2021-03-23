@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { auth, db } from '../firebase';
+import { db } from '../firebase';
 import toast from 'react-hot-toast';
+import getCurrentUser from '../utils/user';
 
 export const fetchProjects = createAsyncThunk('projects/fetchProjects', async (user, { rejectWithValue }) => {
   const project = [];
@@ -16,16 +17,15 @@ export const fetchProjects = createAsyncThunk('projects/fetchProjects', async (u
 });
 
 export const fetchAddProject = createAsyncThunk('projects/FetchAddProject', async (project, { rejectWithValue }) => {
-  const uid = auth.currentUser.uid;
   let result = {};
   let error = false;
   const newProject = {
     name: project.name,
     tech: project.tech,
     resume: project.resume,
-    userId: uid
+    userId: getCurrentUser().uid
   }
-  await toast.promise(db.collection('projects').add(newProject), {
+  toast.promise(db.collection('projects').add(newProject), {
     loading: 'Loading',
     success: (doc) => {
       result = {id: doc.id, ...newProject}; 
