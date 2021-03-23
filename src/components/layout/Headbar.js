@@ -27,7 +27,7 @@ export const Headbar = () => {
     <ContainerHeadBar>
       <Search parentsubmit={handleSearch} width="17rem" /> {/*bind data*/}
       <User>
-        <div>{auth.currentUser.email}</div>
+        <div>{auth.currentUser?.email}</div>
         <ButtonSmall onClick={redirectToProfile}>
           <i className="fas fa-user-edit"></i>
         </ButtonSmall>

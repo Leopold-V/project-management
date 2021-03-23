@@ -1,0 +1,1 @@
+export { ParticlesBackground } from './ParticlesBackground';
