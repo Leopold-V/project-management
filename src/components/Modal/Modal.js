@@ -13,7 +13,7 @@ export const Modal = ({show, toggle, children}) => {
         <Wrapper>
             <ModalStyled>
                 <WrapperButton>
-                    <ButtonIcon onClick={toggle}><i class="fas fa-times-circle fa-2x"></i></ButtonIcon>
+                    <ButtonIcon onClick={toggle}><i className="fas fa-times-circle fa-2x"></i></ButtonIcon>
                 </WrapperButton>
                 {children}
             </ModalStyled>
