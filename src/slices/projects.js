@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { db } from '../firebase';
+import { auth, db } from '../firebase';
+import toast from 'react-hot-toast';
 
 export const fetchProjects = createAsyncThunk('projects/fetchProjects', async (user, { rejectWithValue }) => {
   const project = [];
@@ -12,6 +13,33 @@ export const fetchProjects = createAsyncThunk('projects/fetchProjects', async (u
   } catch (error) {
     return rejectWithValue(error.code);
   }
+});
+
+export const fetchAddProject = createAsyncThunk('projects/FetchAddProject', async (project, { rejectWithValue }) => {
+  const uid = auth.currentUser.uid;
+  let result = {};
+  let error = false;
+  const newProject = {
+    name: project.name,
+    tech: project.tech,
+    resume: project.resume,
+    userId: uid
+  }
+  await toast.promise(db.collection('projects').add(newProject), {
+    loading: 'Loading',
+    success: (doc) => {
+      result = {id: doc.id, ...newProject}; 
+      return 'Project successfully created 🔥';
+    },
+    error: (error) => {
+      error = error.code;
+      return error.code;
+    },
+  })
+  if (error) {
+    return rejectWithValue(error.code);
+  }
+  return result;
 });
 
 export const projectSlice = createSlice({
@@ -31,6 +59,17 @@ export const projectSlice = createSlice({
       state.projects = action.payload;
     },
     [fetchProjects.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [fetchAddProject.pending]: (state) => {
+      state.loading = true;
+    },
+    [fetchAddProject.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.projects.push(action.payload);
+    },
+    [fetchAddProject.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },
