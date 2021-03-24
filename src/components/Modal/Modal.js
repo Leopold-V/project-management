@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 
 import { ButtonIcon } from '../Button';
 
-export const Modal = ({show, toggle, children}) => {
+export const Modal = ({show, toggle, type, who, children}) => {
 
-    if (!show) {
+    if (!show.state || show.type !== type || show.who !== who) {
         return null;
     }
     return (
@@ -21,14 +21,19 @@ export const Modal = ({show, toggle, children}) => {
     )
 }
 
+Modal.defaultProps = {
+    show: {state: false, type: '', who: ''},
+    who: '',
+    type: ''
+};
+
 Modal.propTypes = {
-    show: PropTypes.bool.isRequired,
-    toggle: PropTypes.func.isRequired
+    show: PropTypes.object.isRequired,
+    toggle: PropTypes.func.isRequired,
+    who: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired
 };
-  
-Modal.defaultTypes = {
-    show: 'false',
-};
+
 
 const WrapperButton = styled.div`
     position: absolute;
@@ -51,7 +56,7 @@ const Wrapper = styled.div`
 
 const opening = keyframes`
     0% {
-        transform: scale(2);
+        transform: scale(0);
 	    opacity: 0;
     }
     100% {
@@ -65,7 +70,6 @@ const ModalStyled = styled.div`
     background-color: #27262b;
     color: white;
     border-radius: 5px;
-    border: 1px solid white;
     padding: 1rem;
     display: flex;
     flex-direction: column;

@@ -12,6 +12,8 @@ export const Button = styled.button`
   padding: 0.6rem 1rem;
   background-color: #01b075;
   color: white;
+  font-weight: 600;
+  font-size: 1rem;
   cursor: pointer;
   box-shadow: ${(props) => (props.light ? '0rem 0rem .5rem rgba(70, 207, 122)' : 'none')};
   transition: all 0.2s;
