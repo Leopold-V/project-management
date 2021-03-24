@@ -25,10 +25,10 @@ export const fetchAddProject = createAsyncThunk('projects/FetchAddProject', asyn
     resume: project.resume,
     userId: getCurrentUser().uid
   }
-  toast.promise(db.collection('projects').add(newProject), {
+  await toast.promise(db.collection('projects').add(newProject), {
     loading: 'Loading',
     success: (doc) => {
-      result = {id: doc.id, ...newProject}; 
+      result = {id: doc.id, ...newProject};
       return 'Project successfully created 🔥';
     },
     error: (error) => {
@@ -40,6 +40,24 @@ export const fetchAddProject = createAsyncThunk('projects/FetchAddProject', asyn
     return rejectWithValue(error.code);
   }
   return result;
+});
+
+export const fetchDeleteProject = createAsyncThunk('projects/FetchDeleteProject', async (pid, { rejectWithValue }) => {
+  let error = false;
+  await toast.promise(db.collection('projects').doc(pid).delete(), {
+    loading: 'Loading',
+    success: () => {
+      return 'Project successfully deleted 🔥';
+    },
+    error: (error) => {
+      error = error.code;
+      return error;
+    },
+  })
+  if (error) {
+    return rejectWithValue(error.code);
+  }
+  return pid;
 });
 
 export const projectSlice = createSlice({
@@ -70,6 +88,17 @@ export const projectSlice = createSlice({
       state.projects.push(action.payload);
     },
     [fetchAddProject.rejected]: (state, action) => {
+      state.loading = false;
+      state.error = action.payload;
+    },
+    [fetchDeleteProject.pending]: (state) => {
+      state.loading = true;
+    },
+    [fetchDeleteProject.fulfilled]: (state, action) => {
+      state.loading = false;
+      state.projects = state.projects.filter((ele) => ele.id !== action.payload);
+    },
+    [fetchDeleteProject.rejected]: (state, action) => {
       state.loading = false;
       state.error = action.payload;
     },

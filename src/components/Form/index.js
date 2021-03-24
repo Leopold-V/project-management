@@ -5,3 +5,5 @@ export { Icon } from './Icon';
 export { Form } from './Form';
 export { ButtonForm } from './ButtonForm';
 export { FormAddProject } from './FormAddProject';
+export { FormUpdateProject } from './FormUpdateProject';
+export { FormDeleteProject } from './FormDeleteProject';
