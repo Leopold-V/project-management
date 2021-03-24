@@ -16,3 +16,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+table {
+  cursor: unset !important;
+}
+
+.table-projects tr {
+  background-color: whitesmoke;
+  color: black;
+  font-weight: 600;
+  cursor: unset !important;
+}
+
+.table-projects tr:hover {
+  opacity: 0.95;
+}
+
+._1OmBB tbody tr:nth-of-type(even) {
+  color: #000000;
+  background-color: #dddddd !important;
+}

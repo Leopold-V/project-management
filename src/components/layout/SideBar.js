@@ -31,6 +31,11 @@ export const SideBar = () => {
             </ButtonLink>
           </NavItem>
           <NavItem>
+            <ButtonLink $light={true} exact to="/dashboard" activeClassName="active">
+              <i className="fas fa-home"></i>&nbsp;Dashboard
+            </ButtonLink>
+          </NavItem>
+          <NavItem>
             <ButtonLink $light={true} to="/profile" activeClassName="active">
               <i className="fas fa-cog"></i>&nbsp;Profile
             </ButtonLink>
