@@ -6,7 +6,7 @@ import 'react-flexy-table/dist/index.css'
 import { projectsSelector } from '../../slices/projects';
 import { useModal } from '../../hooks/useModal';
 import { useAdditionalCols } from '../../hooks/useAdditionalCols';
-import { formatProject } from '../../utils/projects';
+import { formatTableProject } from '../../utils/projects';
 
 import { Button } from '../Button';
 import { ContainerCard, ContainerSection } from '../Container';
@@ -20,12 +20,12 @@ export const Dashboard = () => {
     const additionalCols = useAdditionalCols();
 
     const projects = useSelector(projectsSelector);
-    const data = formatProject(projects);
+    const data = formatTableProject(projects);
     
     return (
         <ContainerSection>
             <h2>Dashboard</h2>
-            <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} filterable sortable/>
+            <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} sortable/>
             <ContainerCard>
                 <Card>
                     <h4>Create a new project</h4>

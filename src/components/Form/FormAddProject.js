@@ -33,6 +33,15 @@ export const FormAddProject = () => {
     if (!input.resume) {
       return toast.error('Please provide a project description');
     }
+    if (input.name.length > 50) {
+      return toast.error('Your project name is too long (max 50 char)');
+    }
+    if (input.tech.length > 100) {
+      return toast.error('Your tech list is too long (max 100 char)');
+    }
+    if (input.resume.length > 200) {
+      return toast.error('Your resume is too long (max 200 char)');
+    }
     dispatch(fetchAddProject({name: input.name, tech: input.tech, resume: input.resume}));
     setInput({
       name : '',

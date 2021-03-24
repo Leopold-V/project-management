@@ -12,6 +12,7 @@ export const ButtonLink = styled(NavLink)`
   color: white;
   border: 2px solid transparent;
   cursor: pointer;
+  overflow: hidden;
   transition: all 0.3s;
   & > i {
     margin-right: 0.2rem;

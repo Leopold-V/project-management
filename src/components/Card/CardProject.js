@@ -7,8 +7,8 @@ import { Button } from '../Button';
 export const CardProject = ({ name, resume, tech }) => {
   return (
     <Wrapper>
-      <h4>{name}</h4>
-      <div>{tech}</div>
+      <h4 style={{overflowWrap: 'anywhere', textAlign: 'center'}}>{name}</h4>
+      <div style={{overflowWrap: 'anywhere', textAlign: 'center'}}>{tech}</div>
       <p>{resume}</p>
       <Button className="transparent">Open</Button>
     </Wrapper>
@@ -32,7 +32,8 @@ export const Wrapper = styled.div`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 2rem;
-  width: 15rem;
+  min-width: 15rem;
+  max-width: 25rem;
   transition: all 0.3s;
   &:hover {
     border: 2px solid #01b075;
