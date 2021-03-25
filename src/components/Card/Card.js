@@ -9,7 +9,7 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  margin: 1rem 1.5rem;
+  margin: 1rem 1rem;
   transition: all 0.3s;
   &:hover {
     border: 2px solid #01b075;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { projectsSelector } from '../../slices/projects';
+import { projectsSelector } from '../../slices/sliceProjects';
 
 import { useModal } from '../../hooks/useModal';
 
@@ -12,7 +12,6 @@ import { Modal } from '../Modal';
 import { FormAddProject } from '../Form';
 
 export const Home = () => {
-
   const projects = useSelector(projectsSelector);
 
   const [show, toggle] = useModal();
@@ -43,7 +42,7 @@ export const Home = () => {
       <h3>Your project{projects.length > 0 ? 's' : ''} :</h3>
       <ContainerCard>
         {projects.map((ele) => {
-          return <CardProject key={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />
+          return <CardProject key={ele.id} id={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />;
         })}
       </ContainerCard>
 
@@ -51,7 +50,6 @@ export const Home = () => {
         <h2>Add a new project :</h2>
         <FormAddProject />
       </Modal>
-
     </ContainerSection>
   );
 };

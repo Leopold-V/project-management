@@ -31,9 +31,9 @@ export const ButtonLink = styled(NavLink)`
 `;
 
 ButtonLink.propTypes = {
-  $light: PropTypes.bool
+  $light: PropTypes.bool,
 };
 
 ButtonLink.defaultTypes = {
-  $light: false
+  $light: false,
 };

@@ -7,3 +7,6 @@ export { ButtonForm } from './ButtonForm';
 export { FormAddProject } from './FormAddProject';
 export { FormUpdateProject } from './FormUpdateProject';
 export { FormDeleteProject } from './FormDeleteProject';
+export { FormAddTask } from './FormAddTask';
+export { FormUpdateTask } from './FormUpdateTask';
+export { FormDeleteTask } from './FormDeleteTask';

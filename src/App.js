@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { Toaster } from 'react-hot-toast';
 
 import { auth } from './firebase';
 import store from './store';
-import { fetchProjects } from './slices/projects';
-import { fetchTasks } from './slices/tasks';
+import { fetchProjects } from './actions/actionsProjects';
+import { fetchTasks } from './actions/actionsTasks';
 
+import { Layout } from './components/layout/Layout';
 import { Home } from './components/pages/Home';
+import { Dashboard } from './components/pages/Dashboard';
+import { Project } from './components/pages/Project';
+import { Profile } from './components/pages/Profile';
 import { Login } from './components/pages/Login';
 import { Register } from './components/pages/Register';
-import { Project } from './components/pages/Project';
-import { Layout } from './components/layout/Layout';
-import { Profile } from './components/pages/Profile';
 
 function App() {
   const [currentUser, setcurrentUser] = useState(false);
@@ -40,6 +42,7 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Layout>
+          <Toaster position="bottom-center" reverseOrder={true} />
           <Switch>
             <Route exact path="/" render={() => (currentUser ? <Home /> : <Redirect to="/login" />)} />
             <Route path="/login" render={() => (currentUser ? <Redirect to="/" /> : <Login />)} />
@@ -48,6 +51,7 @@ function App() {
               path="/project/:id"
               render={(props) => (currentUser ? <Project {...props} /> : <Redirect to="/login" />)}
             />
+            <Route path="/dashboard" render={() => (currentUser ? <Dashboard /> : <Redirect to="/login" />)} />
             <Route path="/profile" render={() => (currentUser ? <Profile /> : <Redirect to="/login" />)} />
           </Switch>
         </Layout>
@@ -55,5 +59,5 @@ function App() {
     </Provider>
   );
 }
- 
+
 export default App;

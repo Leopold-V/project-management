@@ -23,6 +23,10 @@ export const Profile = () => {
               <span style={{ fontWeight: 'bold' }}>Email : </span>
               {user.email}
             </li>
+            <li>
+              <span style={{ fontWeight: 'bold' }}>Username : </span>
+              {user.username}
+            </li>
           </List>
         </Card>
       </ContainerCard>

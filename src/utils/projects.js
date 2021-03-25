@@ -1,6 +1,7 @@
 export const formatTableProject = (projects) => {
-    return projects.map((project) => ({
-        Name: project.name,
-        Tech: project.tech,
-    }))
-}
+  return projects.map((project) => ({
+    Id: project.id,
+    Name: project.name,
+    Tech: project.tech,
+  }));
+};

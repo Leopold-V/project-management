@@ -25,9 +25,9 @@ export const ButtonSmall = styled.button`
 `;
 
 ButtonSmall.propTypes = {
-  light: PropTypes.bool
+  light: PropTypes.bool,
 };
 
 ButtonSmall.defaultTypes = {
-  light: false
+  light: false,
 };

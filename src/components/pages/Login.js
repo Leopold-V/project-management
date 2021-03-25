@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 import { auth } from '../../firebase';
 
@@ -52,7 +52,6 @@ export const Login = () => {
     <Container>
       <ParticlesBackground />
       <ContainerForm>
-        <Toaster position="bottom-center" reverseOrder={true} />
         <BlockLeft>
           <TitleMain>
             Welcome on <span style={{ color: '#46cf7a' }}>OpenBoard</span>

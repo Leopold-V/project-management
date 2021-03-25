@@ -1,23 +1,20 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
+import PropTypes from 'prop-types';
 
-import { fetchAddProject } from '../../actions/actionsProjects';
-import getCurrentUser from '../../utils/user';
+import { projectsSelector } from '../../slices/sliceProjects';
+import { fetchUpdateProject } from '../../actions/actionsProjects';
 
-import { ButtonSmall } from '../Button';
+import { Button } from '../Button';
 import { Input, InputGroup, TextArea, Icon, Form } from '../Form';
 
-export const FormAddProject = () => {
+export const FormUpdateProject = ({ pid }) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.projects.loading);
+  const project = useSelector((state) => projectsSelector(state).find((project) => project.id === pid));
 
-  const [input, setInput] = useState({
-    name: '',
-    tech: '',
-    resume: '',
-    userId: getCurrentUser().uid
-  });
+  const [input, setInput] = useState({...project});
 
   const handleChange = (e) => {
     setInput((input) => ({ ...input, [e.target.name]: e.target.value }));
@@ -43,13 +40,7 @@ export const FormAddProject = () => {
     if (input.resume.length > 200) {
       return toast.error('Your resume is too long (max 200 char)');
     }
-    dispatch(fetchAddProject(input));
-    setInput((input) => ({
-      ...input,
-      name: '',
-      tech: '',
-      resume: '',
-    }));
+    dispatch(fetchUpdateProject({...input}));
   };
 
   return (
@@ -60,7 +51,7 @@ export const FormAddProject = () => {
       </InputGroup>
       <InputGroup>
         <Icon className="fas fa-cogs"></Icon>
-        <Input type="text" name="tech" placeholder="Technologies" value={input.tech} onChange={handleChange} />
+        <Input type="text" name="tech" placeholder="Tech name" value={input.tech} onChange={handleChange} />
       </InputGroup>
       <InputGroup>
         <Icon className="fas fa-file-alt"></Icon>
@@ -73,9 +64,11 @@ export const FormAddProject = () => {
           onChange={handleChange}
         />
       </InputGroup>
-      <ButtonSmall style={{ margin: '0 auto' }}>
-        {loading ? 'loading...' : <i className="fas fa-plus-circle fa-2x"></i>}
-      </ButtonSmall>
+      <Button style={{ margin: '0 auto' }}>{loading ? 'loading...' : 'Update'}</Button>
     </Form>
   );
+};
+
+FormUpdateProject.propTypes = {
+  pid: PropTypes.string.isRequired,
 };

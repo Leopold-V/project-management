@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const InputGroup = styled.div`
   max-width: 380px;
-  width: 90%;
+  width: 100%;
   background-color: #f0f0f0;
   margin: 10px auto;
   border-radius: 5px;

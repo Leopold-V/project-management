@@ -1,21 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
 import { Button } from '../Button';
 
-export const CardProject = ({ name, resume, tech }) => {
+export const CardProject = ({ id, name, resume, tech }) => {
+  let history = useHistory();
+
+  const redirectToProject = () => {
+    history.push('/project/' + id);
+  };
+
   return (
     <Wrapper>
-      <h4 style={{overflowWrap: 'anywhere', textAlign: 'center'}}>{name}</h4>
-      <div style={{overflowWrap: 'anywhere', textAlign: 'center'}}>{tech}</div>
+      <h4 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</h4>
+      <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
       <p>{resume}</p>
-      <Button className="transparent">Open</Button>
+      <Button onClick={redirectToProject} className="transparent">
+        Open
+      </Button>
     </Wrapper>
   );
 };
 
 CardProject.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   resume: PropTypes.string.isRequired,
   tech: PropTypes.string.isRequired,
@@ -30,7 +40,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 1rem;
   margin-bottom: 2rem;
   min-width: 15rem;
   max-width: 25rem;

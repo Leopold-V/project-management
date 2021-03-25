@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
-import { projectsSelector } from '../../slices/projects';
+import { projectsSelector } from '../../slices/sliceProjects';
 
 import { ButtonLink } from '../Button';
 import { ContainerSideBar } from '../Container';
@@ -46,11 +46,11 @@ export const SideBar = () => {
           {projects.map((ele) => {
             return (
               <NavItem key={ele.id}>
-                <ButtonLink $light={true} to={'/project/'+ele.id} activeClassName="active">
+                <ButtonLink $light={true} to={'/project/' + ele.id} activeClassName="active">
                   {ele.name}
                 </ButtonLink>
               </NavItem>
-            )
+            );
           })}
         </NavList>
       </Nav>

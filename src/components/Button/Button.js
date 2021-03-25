@@ -32,9 +32,9 @@ export const Button = styled.button`
 `;
 
 Button.propTypes = {
-  light: PropTypes.bool
+  light: PropTypes.bool,
 };
 
 Button.defaultTypes = {
-  light: false
+  light: false,
 };
