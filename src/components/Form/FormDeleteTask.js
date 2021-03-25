@@ -19,7 +19,7 @@ export const FormDeleteTask = ({ toggle, tid }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Button style={{ margin: '0rem auto' }}>{loading ? 'loading...' : 'Delete'}</Button>
+      <Button color="danger" style={{ margin: '0rem auto' }}>{loading ? 'loading...' : 'Delete'}</Button>
     </Form>
   );
 };

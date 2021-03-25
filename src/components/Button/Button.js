@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+const color = {
+  primary : '#01b075',
+  danger : '#e63225'
+}
+
 export const Button = styled.button`
   display: flex;
   justify-content: center;
@@ -10,12 +15,12 @@ export const Button = styled.button`
   outline: none;
   border-radius: 5px;
   padding: 0.6rem 1rem;
-  background-color: #01b075;
+  background-color: ${(props) => color[props.color]};
   color: white;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: ${(props) => (props.light ? '0rem 0rem .5rem rgba(70, 207, 122)' : 'none')};
+  box-shadow: ${(props) => (props.light ? '0rem 0rem .5rem' + color[props.color] : 'none')};
   transition: all 0.2s;
   & > i {
     margin-right: 0.2rem;
@@ -27,14 +32,16 @@ export const Button = styled.button`
     background-color: transparent;
   }
   &:hover {
-    box-shadow: 0rem 0rem 0.5rem rgba(70, 207, 122);
+    box-shadow: ${(props) => '0rem 0rem .5rem' + color[props.color]};
   }
 `;
 
 Button.propTypes = {
+  color: PropTypes.string,
   light: PropTypes.bool,
 };
 
-Button.defaultTypes = {
+Button.defaultProps = {
+  color: 'primary',
   light: false,
 };
