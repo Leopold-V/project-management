@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
+export { ContainerCardTask } from './ContainerCardTask';
+
 export const Container = styled.div`
   position: relative;
   width: 100%;
