@@ -22,7 +22,7 @@ table {
 }
 
 .table-projects tr {
-  background-color: whitesmoke;
+  background-color: white;
   color: black;
   font-weight: 600;
   cursor: unset !important;

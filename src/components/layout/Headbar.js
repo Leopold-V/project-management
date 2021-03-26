@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
@@ -7,14 +8,11 @@ import { auth } from '../../firebase';
 
 import { ButtonSmall } from '../Button';
 import { ContainerHeadBar } from '../Container';
-import { Search } from '../Search/Search';
+import Switch from '../Switch'; 
 
 export const Headbar = () => {
   let history = useHistory();
-
-  const handleSearch = () => {
-    alert('TODO');
-  };
+  const theme = useSelector(state => state.switch);
 
   const redirectToProfile = () => {
     history.push('/profile');
@@ -25,8 +23,8 @@ export const Headbar = () => {
   };
 
   return (
-    <ContainerHeadBar>
-      <Search parentsubmit={handleSearch} width="17rem" /> {/*bind data*/}
+    <ContainerHeadBar theme={theme}>
+      <Switch />
       <User>
         <div>{getCurrentUser()?.email}</div>
         <ButtonSmall onClick={redirectToProfile}>

@@ -1,7 +1,19 @@
+import React from 'react'
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-export const Card = styled.div`
-  background-color: #27262b;
+export const Card = ({children}) => {
+  const theme = useSelector(state => state.switch);
+
+  return (
+    <CardStyled theme={theme}>
+      {children}
+    </CardStyled>
+  )
+}
+
+export const CardStyled = styled.div`
+  background-color: ${(props) => props.theme.card};
   border-radius: 5px;
   border: 2px solid transparent;
   padding: 1rem;
@@ -10,10 +22,11 @@ export const Card = styled.div`
   justify-content: start;
   align-items: center;
   margin: 1rem 1rem;
+  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)'};
   transition: all 0.3s;
   &:hover {
-    border: 2px solid #01b075;
-    box-shadow: 0rem 0rem 0.5rem rgba(70, 207, 122);
+    border: 2px solid ${(props) => props.theme.value ? '#01b075' : 'transparent'};
+    box-shadow: ${(props) => props.theme.value ? '0rem 0rem 0.5rem rgba(70, 207, 122)' : '0rem .3rem .4rem rgba(0, 0, 0, .3)'};
   }
   & > p,
   div {

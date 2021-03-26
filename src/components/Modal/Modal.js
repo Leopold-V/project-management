@@ -8,8 +8,16 @@ export const Modal = ({ show, toggle, type, who, children }) => {
   if (!show.state || show.type !== type || show.who !== who) {
     return null;
   }
+
+  const handleClose = (e) => {
+    if (e.target !== e.currentTarget) {
+      return;
+    }
+    toggle();
+  }
+
   return (
-    <Wrapper>
+    <Wrapper onClick={handleClose}>
       <ModalStyled>
         <WrapperButton>
           <ButtonIcon onClick={toggle}>
@@ -80,5 +88,6 @@ const ModalStyled = styled.div`
   line-break: anywhere;
   text-align: center;
   min-height: 20rem;
+  z-index: 3000;
   animation: ${opening} 0.4s;
 `;

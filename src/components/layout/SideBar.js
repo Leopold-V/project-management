@@ -12,13 +12,14 @@ export const SideBar = () => {
   let history = useHistory();
 
   const projects = useSelector(projectsSelector);
+  const theme = useSelector(state => state.switch);
 
   const refreshPage = () => {
     history.go('/');
   };
 
   return (
-    <ContainerSideBar>
+    <ContainerSideBar theme={theme}>
       <Title onClick={refreshPage}>
         Open<span>Board</span>
       </Title>
@@ -32,7 +33,7 @@ export const SideBar = () => {
           </NavItem>
           <NavItem>
             <ButtonLink $light={true} exact to="/dashboard" activeClassName="active">
-              <i className="fas fa-home"></i>&nbsp;Dashboard
+            <i className="fas fa-chart-line"></i>&nbsp;Dashboard
             </ButtonLink>
           </NavItem>
           <NavItem>

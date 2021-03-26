@@ -16,7 +16,7 @@ export const TableActions = ({ data }) => {
         <i className="fas fa-edit" id={data.Id} data-type="edit"></i>
       </ButtonSmall>
       <span> &nbsp; </span>
-      <ButtonSmall onClick={toggle} id={data.Id} data-type="delete">
+      <ButtonSmall color="danger" onClick={toggle} id={data.Id} data-type="delete">
         <i className="fas fa-trash-alt" id={data.Id} data-type="delete"></i>
       </ButtonSmall>
       <Modal show={show} toggle={toggle} who={data.Id} type="edit">
