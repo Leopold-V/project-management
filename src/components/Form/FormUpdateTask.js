@@ -33,6 +33,7 @@ export const FormUpdateTask = ({ task, updateState }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2>Update :</h2>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input type="text" name="name" placeholder="Task name" onChange={handleChange} value={input} />

@@ -37,6 +37,7 @@ export const FormAddTask = ({ pid, title, addState }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2>New task :</h2>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input ref={ref_name} type="text" name="name" placeholder="Task name" />

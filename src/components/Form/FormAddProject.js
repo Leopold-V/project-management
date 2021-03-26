@@ -54,6 +54,7 @@ export const FormAddProject = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2>Add a new project :</h2>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input type="text" name="name" placeholder="Project name" value={input.name} onChange={handleChange} />

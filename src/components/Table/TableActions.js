@@ -20,11 +20,9 @@ export const TableActions = ({ data }) => {
         <i className="fas fa-trash-alt" id={data.Id} data-type="delete"></i>
       </ButtonSmall>
       <Modal show={show} toggle={toggle} who={data.Id} type="edit">
-        <h2>Edit :</h2>
         <FormUpdateProject pid={data.Id} />
       </Modal>
       <Modal show={show} toggle={toggle} who={data.Id} type="delete">
-        <h2>Are you sure to delete the project {data.name} ?</h2>
         <FormDeleteProject toggle={toggle} pid={data.Id} />
       </Modal>
     </ButtonGroup>

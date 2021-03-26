@@ -47,7 +47,6 @@ export const Home = () => {
       </ContainerCard>
 
       <Modal show={show} toggle={toggle}>
-        <h2>Add a new project :</h2>
         <FormAddProject />
       </Modal>
     </ContainerSection>

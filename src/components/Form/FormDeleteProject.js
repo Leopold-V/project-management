@@ -21,6 +21,7 @@ export const FormDeleteProject = ({ toggle, pid }) => {
 
   return (
     <Form>
+      <h2>Are you sure to delete this project ?</h2>
       <ButtonGroup>
         <Button style={{ margin: '1rem' }} onClick={handleSubmit}>
           Yes

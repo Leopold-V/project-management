@@ -45,6 +45,7 @@ export const FormUpdateProject = ({ pid }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
+      <h2>Edit :</h2>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input type="text" name="name" placeholder="Project name" value={input.name} onChange={handleChange} />

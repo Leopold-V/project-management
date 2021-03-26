@@ -29,7 +29,6 @@ export const ItemTask = ({ task, index, updateState, deleteTask }) => {
             {task.name}
           </Item>
           <Modal show={show} toggle={toggle} who={task.id}>
-            <h2>Update :</h2>
             <FormUpdateTask task={task} updateState={updateState} />
             <FormDeleteTask toggle={toggle} task={task} deleteTask={deleteTask} />
           </Modal>

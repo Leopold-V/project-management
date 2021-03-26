@@ -9,7 +9,7 @@ import { useModal } from '../../hooks/useModal';
 import { ButtonSmall } from '../Button';
 import { FormAddTask } from '../Form';
 import { Modal } from '../Modal';
-import { ItemTask } from '../Task';
+import { ItemTask } from './ItemTask';
 
 export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid }) => {
   const [show, toggle] = useModal();
@@ -17,7 +17,7 @@ export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid 
   const theme = useSelector((state) => state.switch);
 
   return (
-    <Wrapper theme={theme}>
+    <CardTaskStyled theme={theme}>
       <CardHeader>
         <h4>{title}</h4>
       </CardHeader>
@@ -35,10 +35,9 @@ export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid 
         <i className="fas fa-plus-circle fa-2x" id={title}></i>
       </ButtonSmall>
       <Modal show={show} toggle={toggle} who={title}>
-        <h2>New task :</h2>
         <FormAddTask pid={pid} title={title} addState={addState} />
       </Modal>
-    </Wrapper>
+    </CardTaskStyled>
   );
 };
 
@@ -62,7 +61,7 @@ const CardBody = styled.div`
   min-height: 10rem;
 `;
 
-const Wrapper = styled.div`
+const CardTaskStyled = styled.div`
   background-color: ${(props) => props.theme.card};
   box-shadow: ${(props) => (props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)')};
   border: 2px solid transparent;
