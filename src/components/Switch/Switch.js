@@ -20,7 +20,7 @@ const Switch = () => {
 const StyledLabel = styled.label`
   display: block;
   width: 60px;
-  height: 24px;
+  height: 30px;
   position: relative;
   margin: 0 1rem;
   .switch input {
@@ -42,9 +42,9 @@ const StyledLabel = styled.label`
   .slider:before {
     position: absolute;
     content: '';
-    height: 35px;
-    width: 35px;
-    left: -2px;
+    height: 26px;
+    width: 26px;
+    left: 3px;
     bottom: 4px;
     top: 0;
     bottom: 0;
@@ -52,7 +52,7 @@ const StyledLabel = styled.label`
     -webkit-transition: 0.4s;
     transition: 0.4s;
     box-shadow: 0 0px 15px #2020203d;
-    background: white url('https://i.ibb.co/FxzBYR9/night.png');
+    background: white url('./moon.svg');
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -63,10 +63,10 @@ const StyledLabel = styled.label`
     box-shadow: 0 0 1px #2196f3;
   }
   input:checked + .slider:before {
-    -webkit-transform: translateX(34px);
-    -ms-transform: translateX(34px);
-    transform: translateX(34px);
-    background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+    -webkit-transform: translateX(28px);
+    -ms-transform: translateX(28px);
+    transform: translateX(28px);
+    background: white url('./sun.svg');
     background-repeat: no-repeat;
     background-position: center;
   }
