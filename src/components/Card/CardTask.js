@@ -63,7 +63,7 @@ const CardBody = styled.div`
 
 const CardTaskStyled = styled.div`
   background-color: ${(props) => props.theme.card};
-  box-shadow: ${(props) => (props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)')};
+  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   border: 2px solid transparent;
   border-radius: 5px;
   display: flex;
@@ -72,6 +72,7 @@ const CardTaskStyled = styled.div`
   margin: 0 1rem;
   margin-bottom: 2rem;
   width: 20rem;
+  min-height: 30rem;
   transition: all 0.3s;
   overflow: hidden;
   &:hover {

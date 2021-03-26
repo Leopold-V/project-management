@@ -11,7 +11,7 @@ export const Profile = () => {
 
   return (
     <ContainerSection>
-      <h2>Profile page</h2>
+      <h2>Profile</h2>
       <ContainerCard>
         <Card>
           <List>

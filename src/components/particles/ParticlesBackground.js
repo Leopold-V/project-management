@@ -10,7 +10,8 @@ export const ParticlesStyled = styled(Particles)`
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 0;
+  z-index: -9999;
+  background-color: #030111;
   @media (max-width: 1000px) {
     display: none;
   }
@@ -19,25 +20,22 @@ export const ParticlesStyled = styled(Particles)`
 const particleParams = {
   particles: {
     number: {
-      value: 160,
+      value: 200,
       density: {
-        enable: false,
+        enable: true,
+        value_area: 789.1476416322727
       },
     },
     size: {
-      value: 4,
+      value: 2,
       random: true,
-      anim: {
-        speed: 4,
-        size_min: 0.3,
-      },
     },
     line_linked: {
       enable: false,
     },
     move: {
-      random: true,
-      speed: 1,
+      random: false,
+      speed: .1,
       direction: 'top',
       out_mode: 'out',
     },

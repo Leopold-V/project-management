@@ -18,7 +18,8 @@ export const CardStyled = styled.div`
   justify-content: start;
   align-items: center;
   margin: 1rem 1rem;
-  box-shadow: ${(props) => (props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)')};
+  color: ${(props) => (!props.theme.value ? '#030111' : 'white')};
+  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   transition: all 0.3s;
   &:hover {
     border: 2px solid ${(props) => (props.theme.value ? '#01b075' : 'transparent')};

@@ -1,8 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { ContainerSection, ContainerCardTask } from '../Container';
+import { ContainerSection, ContainerCardTask, ContainerCard } from '../Container';
 import { projectsSelector } from '../../slices/sliceProjects';
+import { Card } from '../Card';
 
 export const Project = (props) => {
   const id = props.match.params.id;
@@ -11,8 +12,13 @@ export const Project = (props) => {
 
   return (
     <ContainerSection>
-      <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>Project page {projects[0] && projects[0].name}</h2>
-      <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
+      <ContainerCard>
+      <Card>
+        <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</h2>
+        <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].tech}</p>
+        <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
+      </Card>
+      </ContainerCard>
       <ContainerCardTask key={id} pid={id} />
     </ContainerSection>
   );

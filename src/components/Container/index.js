@@ -33,8 +33,10 @@ export const ContainerHeadBar = styled.div`
   min-height: 5rem;
   border-radius: 5px;
   padding: 0 2rem;
-  box-shadow: ${(props) => (props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)')};
+  margin: 1.3rem 2rem;
+  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   background-color: ${(props) => props.theme.card};
+  color: ${(props) => (!props.theme.value ? '#030111' : 'white')};
 `;
 
 export const ContainerSection = styled.div`
@@ -45,7 +47,7 @@ export const ContainerSection = styled.div`
   flex-direction: column;
   justify-content: start;
   overflow: hidden;
-  padding: 1rem;
+  padding: 1rem 3rem;
 `;
 
 export const ContainerCard = styled.div`
@@ -53,7 +55,7 @@ export const ContainerCard = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 1rem;
 `;
 
 export const ContainerForm = styled.div`
@@ -63,7 +65,7 @@ export const ContainerForm = styled.div`
   padding: 2rem 0;
   display: flex;
   justify-content: start;
-  z-index: 1000;
+  z-index: 0;
   color: black;
   @media (max-width: 1200px) {
     width: 80%;

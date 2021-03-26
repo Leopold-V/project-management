@@ -1,20 +1,17 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 
 import { ContainerLayout, ContainerMain } from '../Container';
+import { ParticlesBackground } from '../particles';
 import { Headbar } from './Headbar';
 import { SideBar } from './SideBar';
 
 export const Layout = ({ children }) => {
-  let location = useLocation();
-
-  if (location.pathname === '/login' || location.pathname === '/register') {
-    return <>{children}</>;
-  }
+ 
   return (
     <ContainerLayout>
       <SideBar />
       <ContainerMain>
+        <ParticlesBackground />
         <Headbar />
         {children}
       </ContainerMain>
