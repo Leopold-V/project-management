@@ -14,7 +14,7 @@ export const Modal = ({ show, toggle, type, who, children }) => {
       return;
     }
     toggle();
-  }
+  };
 
   return (
     <Wrapper onClick={handleClose}>

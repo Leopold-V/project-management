@@ -16,10 +16,12 @@ import { TableActions } from '../Table/TableActions';
 
 export const Dashboard = () => {
   const [show, toggle] = useModal();
-  const additionalCols = [{
-    header: 'Actions',
-    td: (data) => <TableActions data={data} />
-  }];
+  const additionalCols = [
+    {
+      header: 'Actions',
+      td: (data) => <TableActions data={data} />,
+    },
+  ];
 
   const projects = useSelector(projectsSelector);
   const data = formatTableProject(projects);

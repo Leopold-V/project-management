@@ -5,9 +5,9 @@ import { change } from '../../slices/sliceSwitch';
 const Switch = () => {
   const dispatch = useDispatch();
 
-    const handleChange = () => {
-        dispatch(change());
-    }
+  const handleChange = () => {
+    dispatch(change());
+  };
 
   return (
     <StyledLabel>

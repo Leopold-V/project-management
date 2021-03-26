@@ -8,7 +8,7 @@ import { Button } from '../Button';
 
 export const CardProject = ({ id, name, resume, tech }) => {
   let history = useHistory();
-  const theme = useSelector(state => state.switch)
+  const theme = useSelector((state) => state.switch);
 
   const redirectToProject = () => {
     history.push('/project/' + id);
@@ -46,11 +46,12 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
   min-width: 15rem;
   max-width: 25rem;
-  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)'};
+  box-shadow: ${(props) => (props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)')};
   transition: all 0.3s;
   &:hover {
-    border: 2px solid ${(props) => props.theme.value ? '#01b075' : 'transparent'};
-    box-shadow: ${(props) => props.theme.value ? '0rem 0rem 0.5rem rgba(70, 207, 122)' : '0rem .3rem .4rem rgba(0, 0, 0, .3)'};
+    border: 2px solid ${(props) => (props.theme.value ? '#01b075' : 'transparent')};
+    box-shadow: ${(props) =>
+      props.theme.value ? '0rem 0rem 0.5rem rgba(70, 207, 122)' : '0rem .3rem .4rem rgba(0, 0, 0, .3)'};
   }
   & > p {
     text-align: center;

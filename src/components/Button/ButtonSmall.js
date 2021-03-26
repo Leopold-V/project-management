@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const color = {
-  primary : '#01b075',
-  danger : '#e63225'
-}
+  primary: '#01b075',
+  danger: '#e63225',
+};
 
 export const ButtonSmall = styled.button`
   display: flex;
@@ -17,7 +17,7 @@ export const ButtonSmall = styled.button`
   color: white;
   cursor: pointer;
   box-shadow: ${(props) => (props.light ? '0rem 0rem .5rem' + color[props.color] : 'none')};
-  transition: all .3s;
+  transition: all 0.3s;
   &:hover {
     box-shadow: ${(props) => '0rem 0rem .5rem' + color[props.color]};
   }

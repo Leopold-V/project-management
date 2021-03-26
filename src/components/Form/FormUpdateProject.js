@@ -14,7 +14,7 @@ export const FormUpdateProject = ({ pid }) => {
   const loading = useSelector((state) => state.projects.loading);
   const project = useSelector((state) => projectsSelector(state).find((project) => project.id === pid));
 
-  const [input, setInput] = useState({...project});
+  const [input, setInput] = useState({ ...project });
 
   const handleChange = (e) => {
     setInput((input) => ({ ...input, [e.target.name]: e.target.value }));
@@ -40,7 +40,7 @@ export const FormUpdateProject = ({ pid }) => {
     if (input.resume.length > 200) {
       return toast.error('Your resume is too long (max 200 char)');
     }
-    dispatch(fetchUpdateProject({...input}));
+    dispatch(fetchUpdateProject({ ...input }));
   };
 
   return (

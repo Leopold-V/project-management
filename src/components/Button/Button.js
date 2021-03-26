@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const color = {
-  primary : '#01b075',
-  danger : '#e63225'
-}
+  primary: '#01b075',
+  danger: '#e63225',
+};
 
 export const Button = styled.button`
   display: flex;

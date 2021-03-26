@@ -21,7 +21,9 @@ export const FormDeleteTask = ({ toggle, task, deleteTask }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Button color="danger" style={{ margin: '0rem auto' }}>{loading ? 'loading...' : 'Delete'}</Button>
+      <Button color="danger" style={{ margin: '0rem auto' }}>
+        {loading ? 'loading...' : 'Delete'}
+      </Button>
     </Form>
   );
 };
@@ -29,5 +31,5 @@ export const FormDeleteTask = ({ toggle, task, deleteTask }) => {
 FormDeleteTask.propTypes = {
   toggle: PropTypes.func.isRequired,
   task: PropTypes.object.isRequired,
-  deleteTask: PropTypes.func.isRequired
+  deleteTask: PropTypes.func.isRequired,
 };

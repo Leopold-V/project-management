@@ -22,8 +22,12 @@ export const FormDeleteProject = ({ toggle, pid }) => {
   return (
     <Form>
       <ButtonGroup>
-        <Button style={{ margin: '1rem' }} onClick={handleSubmit}>Yes</Button>
-        <Button style={{ margin: '1rem' }} onClick={handleSubmit}>No</Button>
+        <Button style={{ margin: '1rem' }} onClick={handleSubmit}>
+          Yes
+        </Button>
+        <Button style={{ margin: '1rem' }} onClick={handleSubmit}>
+          No
+        </Button>
       </ButtonGroup>
     </Form>
   );

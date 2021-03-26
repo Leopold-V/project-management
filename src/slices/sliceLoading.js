@@ -6,9 +6,9 @@ export const loadingSlice = createSlice({
     loading: true,
   },
   reducers: {
-        endLoading: (state) => {
+    endLoading: (state) => {
       state.loading = false;
-    } 
+    },
   },
 });
 

@@ -16,7 +16,7 @@ export const FormAddProject = () => {
     name: '',
     tech: '',
     resume: '',
-    userId: getCurrentUser().uid
+    userId: getCurrentUser().uid,
   });
 
   const handleChange = (e) => {

@@ -10,7 +10,7 @@ const store = configureStore({
     projects: projectReducer,
     tasks: taskReducer,
     switch: switchReducer,
-    loading: loadingReducer
+    loading: loadingReducer,
   },
 });
 

@@ -8,11 +8,11 @@ import { auth } from '../../firebase';
 
 import { ButtonSmall } from '../Button';
 import { ContainerHeadBar } from '../Container';
-import Switch from '../Switch'; 
+import Switch from '../Switch';
 
 export const Headbar = () => {
   let history = useHistory();
-  const theme = useSelector(state => state.switch);
+  const theme = useSelector((state) => state.switch);
 
   const redirectToProfile = () => {
     history.push('/profile');

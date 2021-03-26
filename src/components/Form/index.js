@@ -1,9 +1,9 @@
-export { Input } from './Input';
-export { InputGroup } from './InputGroup';
-export { TextArea } from './TextArea';
-export { Icon } from './Icon';
-export { Form } from './Form';
-export { ButtonForm } from './ButtonForm';
+export { Input } from './small/Input';
+export { InputGroup } from './small/InputGroup';
+export { TextArea } from './small/TextArea';
+export { Icon } from './small/Icon';
+export { Form } from './small/Form';
+export { ButtonForm } from './small/ButtonForm';
 export { FormAddProject } from './FormAddProject';
 export { FormUpdateProject } from './FormUpdateProject';
 export { FormDeleteProject } from './FormDeleteProject';

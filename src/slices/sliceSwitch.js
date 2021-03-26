@@ -11,7 +11,7 @@ export const switchSlice = createSlice({
   reducers: {
     change: (state) => {
       state.value = !state.value;
-      state.background = state.value ? '#030111' : 'whitesmoke';
+      state.background = state.value ? '#030111' : '#ebecf0';
       state.card = state.value ? '#27262b' : 'white';
     },
   },

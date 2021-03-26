@@ -8,45 +8,49 @@ import { useModal } from '../../hooks/useModal';
 import { FormUpdateTask, FormDeleteTask } from '../Form';
 import { Modal } from '../Modal';
 
-export const ItemTask = ({task, index, updateState, deleteTask}) => {
-    const [show, toggle] = useModal();
-  
-    const theme = useSelector(state => state.switch);
-  
-    return (
-        <Draggable draggableId={task.id} index={index}>
-            {(provided, snapshot) => (
-                <>
-                <Item id={task.id} onClick={toggle} theme={theme}
-                    {...provided.draggableProps}      
-                    {...provided.dragHandleProps}     
-                    ref={provided.innerRef}      
-                    isDragging={snapshot.isDragging}    
-                >
-                    {task.name}
-                </Item>
-                <Modal show={show} toggle={toggle} who={task.id}>
-                    <h2>Update :</h2>
-                    <FormUpdateTask task={task} updateState={updateState}/>
-                    <FormDeleteTask toggle={toggle} task={task} deleteTask={deleteTask} />
-                </Modal>
-                </>
-            )}
-        </Draggable>
-    )
-}
+export const ItemTask = ({ task, index, updateState, deleteTask }) => {
+  const [show, toggle] = useModal();
+
+  const theme = useSelector((state) => state.switch);
+
+  return (
+    <Draggable draggableId={task.id} index={index}>
+      {(provided, snapshot) => (
+        <>
+          <Item
+            id={task.id}
+            onClick={toggle}
+            theme={theme}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}
+            ref={provided.innerRef}
+            isDragging={snapshot.isDragging}
+          >
+            {task.name}
+          </Item>
+          <Modal show={show} toggle={toggle} who={task.id}>
+            <h2>Update :</h2>
+            <FormUpdateTask task={task} updateState={updateState} />
+            <FormDeleteTask toggle={toggle} task={task} deleteTask={deleteTask} />
+          </Modal>
+        </>
+      )}
+    </Draggable>
+  );
+};
 
 ItemTask.propTypes = {
-    index: PropTypes.number.isRequired,
-    task: PropTypes.object.isRequired,
-    updateState: PropTypes.func.isRequired,
-    deleteTask: PropTypes.func.isRequired
+  index: PropTypes.number.isRequired,
+  task: PropTypes.object.isRequired,
+  updateState: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired,
 };
 
 const Item = styled.div`
-  background-color: ${(props) => props.theme.value ? 'whitesmoke' : '#505555'};
+  background-color: ${(props) => (props.theme.value ? 'whitesmoke' : '#505555')};
   margin-bottom: 1rem;
   text-align: center;
+  border-radius: 5px;
   color: ${(props) => props.theme.card};
   padding: 0.7rem 1rem;
   max-height: 4rem;

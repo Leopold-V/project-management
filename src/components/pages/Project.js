@@ -5,7 +5,6 @@ import { ContainerSection, ContainerCardTask } from '../Container';
 import { projectsSelector } from '../../slices/sliceProjects';
 
 export const Project = (props) => {
-
   const id = props.match.params.id;
 
   const projects = useSelector((state) => projectsSelector(state).filter((ele) => ele.id === id));
@@ -14,10 +13,7 @@ export const Project = (props) => {
     <ContainerSection>
       <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>Project page {projects[0] && projects[0].name}</h2>
       <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
-      <ContainerCardTask key={id} pid={id}/>
+      <ContainerCardTask key={id} pid={id} />
     </ContainerSection>
   );
 };
-
-
-

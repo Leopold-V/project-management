@@ -26,9 +26,8 @@ export const FormUpdateTask = ({ task, updateState }) => {
     if (input.length > 50) {
       return toast.error('Your task name is too long (max 50 char)');
     }
-    dispatch(fetchUpdateTask({ ...task, name: input }))
-    .then(() => {
-      updateState({...task, name: input});
+    dispatch(fetchUpdateTask({ ...task, name: input })).then(() => {
+      updateState({ ...task, name: input });
     });
   };
 
@@ -45,5 +44,5 @@ export const FormUpdateTask = ({ task, updateState }) => {
 
 FormUpdateTask.propTypes = {
   task: PropTypes.object.isRequired,
-  updateState: PropTypes.func.isRequired
+  updateState: PropTypes.func.isRequired,
 };

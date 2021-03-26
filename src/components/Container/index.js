@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 
 export { ContainerCardTask } from './ContainerCardTask';
+export { ContainerMain } from './ContainerMain';
 
 export const Container = styled.div`
   position: relative;
@@ -27,26 +26,6 @@ export const ContainerSideBar = styled.div`
   position: static;
 `;
 
-
-export const ContainerMain = ({children}) => {
-  const theme = useSelector(state => state.switch);
-
-  return (
-    <ContainerMainStyled theme={theme}>
-      {children}
-    </ContainerMainStyled>
-  )
-}
-
-const ContainerMainStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  background-color: ${(props) => props.theme.background};
-  color: ${(props) => !props.theme.value ? '#030111' : 'white'};;
-  padding: 1.3rem 2rem;
-`;
-
 export const ContainerHeadBar = styled.div`
   display: flex;
   align-items: center;
@@ -54,7 +33,7 @@ export const ContainerHeadBar = styled.div`
   min-height: 5rem;
   border-radius: 5px;
   padding: 0 2rem;
-  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)'};
+  box-shadow: ${(props) => (props.theme.value ? 'none' : '0rem .1rem .4rem rgba(0, 0, 0, .3)')};
   background-color: ${(props) => props.theme.card};
 `;
 
