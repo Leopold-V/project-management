@@ -9,7 +9,7 @@ import getCurrentUser from '../../utils/user';
 import { ButtonSmall } from '../Button';
 import { Input, InputGroup, Icon, Form } from '../Form';
 
-export const FormAddTask = ({ pid, title }) => {
+export const FormAddTask = ({ pid, title, addState }) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.tasks.loading);
 
@@ -29,7 +29,9 @@ export const FormAddTask = ({ pid, title }) => {
       projectId: pid,
       userId: getCurrentUser().uid,
     };
-    dispatch(fetchAddTask(newTask));
+    dispatch(fetchAddTask(newTask)).then((result) => {
+      addState(result.payload);
+    });
     ref_name.current.value = '';
   };
 

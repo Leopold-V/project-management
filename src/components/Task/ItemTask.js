@@ -1,33 +1,46 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { Draggable } from 'react-beautiful-dnd';
 
 import { useModal } from '../../hooks/useModal';
 
 import { FormUpdateTask, FormDeleteTask } from '../Form';
 import { Modal } from '../Modal';
 
-export const ItemTask = ({task}) => {
+export const ItemTask = ({task, index, updateState, deleteTask}) => {
     const [show, toggle] = useModal();
   
     const theme = useSelector(state => state.switch);
   
     return (
-      <>
-        <Item id={task.id} onClick={toggle} theme={theme}>
-          {task.name}
-        </Item>
-        <Modal show={show} toggle={toggle} who={task.id}>
-          <h2>Update :</h2>
-          <FormUpdateTask task={task} />
-          <FormDeleteTask toggle={toggle} tid={task.id} />
-        </Modal>
-      </>
+        <Draggable draggableId={task.id} index={index}>
+            {(provided, snapshot) => (
+                <>
+                <Item id={task.id} onClick={toggle} theme={theme}
+                    {...provided.draggableProps}      
+                    {...provided.dragHandleProps}     
+                    ref={provided.innerRef}      
+                    isDragging={snapshot.isDragging}    
+                >
+                    {task.name}
+                </Item>
+                <Modal show={show} toggle={toggle} who={task.id}>
+                    <h2>Update :</h2>
+                    <FormUpdateTask task={task} updateState={updateState}/>
+                    <FormDeleteTask toggle={toggle} task={task} deleteTask={deleteTask} />
+                </Modal>
+                </>
+            )}
+        </Draggable>
     )
 }
 
 ItemTask.propTypes = {
+    index: PropTypes.number.isRequired,
     task: PropTypes.object.isRequired,
+    updateState: PropTypes.func.isRequired,
+    deleteTask: PropTypes.func.isRequired
 };
 
 const Item = styled.div`

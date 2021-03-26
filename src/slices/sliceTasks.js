@@ -39,6 +39,7 @@ export const taskSlice = createSlice({
       state.loading = false;
       const task = state.tasks.find((ele) => ele.id === action.payload.id);
       task.name = action.payload.name;
+      task.progression = action.payload.progression;
     },
     [fetchUpdateTask.rejected]: (state, action) => {
       state.loading = false;

@@ -7,13 +7,15 @@ import { fetchDeleteTask } from '../../actions/actionsTasks';
 import { Button } from '../Button';
 import { Form } from '../Form';
 
-export const FormDeleteTask = ({ toggle, tid }) => {
+export const FormDeleteTask = ({ toggle, task, deleteTask }) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.tasks.loading);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(fetchDeleteTask(tid));
+    dispatch(fetchDeleteTask(task.id)).then(() => {
+      deleteTask(task);
+    });
     toggle();
   };
 
@@ -26,5 +28,6 @@ export const FormDeleteTask = ({ toggle, tid }) => {
 
 FormDeleteTask.propTypes = {
   toggle: PropTypes.func.isRequired,
-  tid: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
+  deleteTask: PropTypes.func.isRequired
 };

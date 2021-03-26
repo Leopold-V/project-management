@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
-//import { Droppable, Draggable } from 'react-beautiful-dnd';
+import { Droppable } from 'react-beautiful-dnd';
 
 import { useModal } from '../../hooks/useModal';
 
@@ -11,7 +11,7 @@ import { FormAddTask } from '../Form';
 import { Modal } from '../Modal';
 import { ItemTask } from '../Task';
 
-export const CardTask = ({ title, tasks, pid }) => {
+export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid }) => {
   const [show, toggle] = useModal();
 
   const theme = useSelector(state => state.switch);
@@ -21,17 +21,26 @@ export const CardTask = ({ title, tasks, pid }) => {
       <CardHeader>
         <h4>{title}</h4>
       </CardHeader>
-      <CardBody>
-        {tasks.map((ele) => (
-          <ItemTask key={ele.id} task={ele} />
-        ))}
-      </CardBody>
+      <Droppable droppableId={title} type="task">
+        {(provided, snapshot) => (
+          <CardBody
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            isDraggingOver={snapshot.isDraggingOver}
+          >
+          {tasks.map((ele, i) => (
+            <ItemTask key={ele.id} task={ele} updateState={updateState} deleteTask={deleteTask} index={i} />
+          ))}
+            {provided.placeholder}
+          </CardBody>
+        )}
+      </Droppable>
       <ButtonSmall style={{margin: '1rem auto'}} onClick={toggle} className="transparent" id={title}>
         <i className="fas fa-plus-circle fa-2x" id={title}></i>
       </ButtonSmall>
       <Modal show={show} toggle={toggle} who={title}>
         <h2>New task :</h2>
-        <FormAddTask pid={pid} title={title} />
+        <FormAddTask pid={pid} title={title} addState={addState} />
       </Modal>
     </Wrapper>
   );
@@ -41,6 +50,9 @@ CardTask.propTypes = {
   title: PropTypes.string.isRequired,
   tasks: PropTypes.array.isRequired,
   pid: PropTypes.string.isRequired,
+  addState: PropTypes.func.isRequired,
+  updateState: PropTypes.func.isRequired,
+  deleteTask: PropTypes.func.isRequired
 };
 
 const CardHeader = styled.div`
@@ -51,6 +63,7 @@ const CardHeader = styled.div`
 
 const CardBody = styled.div`
   padding: 1rem;
+  min-height: 10rem;
 `;
 
 const Wrapper = styled.div`

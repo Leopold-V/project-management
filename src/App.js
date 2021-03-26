@@ -18,18 +18,23 @@ import { Register } from './components/pages/Register';
 
 function App() {
   const [currentUser, setcurrentUser] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setloading] = useState(true)
+
+  const fetchData = (user) => {
+    store.dispatch(fetchProjects(user))
+    .then(() => store.dispatch(fetchTasks(user)))
+    .then(() => setloading(false))
+    .catch((err) => console.log(err))
+  }
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setcurrentUser(user.email);
-        store.dispatch(fetchProjects(user));
-        store.dispatch(fetchTasks(user));
+        fetchData(user);
       } else {
         setcurrentUser(false);
       }
-      setLoading(false);
     });
     return unsubscribe;
   }, []);
