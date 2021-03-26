@@ -7,8 +7,9 @@ import { useSelector } from 'react-redux';
 import { useModal } from '../../hooks/useModal';
 
 import { ButtonSmall } from '../Button';
-import { FormAddTask, FormUpdateTask, FormDeleteTask } from '../Form';
+import { FormAddTask } from '../Form';
 import { Modal } from '../Modal';
+import { ItemTask } from '../Task';
 
 export const CardTask = ({ title, tasks, pid }) => {
   const [show, toggle] = useModal();
@@ -22,23 +23,12 @@ export const CardTask = ({ title, tasks, pid }) => {
       </CardHeader>
       <CardBody>
         {tasks.map((ele) => (
-          <div key={ele.id}>
-            <Item id={ele.id} onClick={toggle} theme={theme}>
-              {ele.name}
-            </Item>
-            <Modal show={show} toggle={toggle} who={ele.id}>
-              <h2>Update :</h2>
-              <FormUpdateTask task={ele} />
-              <FormDeleteTask toggle={toggle} tid={ele.id} />
-            </Modal>
-          </div>
+          <ItemTask key={ele.id} task={ele} />
         ))}
       </CardBody>
-      <WrapperButton>
-        <ButtonSmall onClick={toggle} className="transparent" id={title}>
-          <i className="fas fa-plus-circle fa-2x" id={title}></i>
-        </ButtonSmall>
-      </WrapperButton>
+      <ButtonSmall style={{margin: '1rem auto'}} onClick={toggle} className="transparent" id={title}>
+        <i className="fas fa-plus-circle fa-2x" id={title}></i>
+      </ButtonSmall>
       <Modal show={show} toggle={toggle} who={title}>
         <h2>New task :</h2>
         <FormAddTask pid={pid} title={title} />
@@ -59,28 +49,8 @@ const CardHeader = styled.div`
   text-align: center;
 `;
 
-const Item = styled.div`
-  background-color: ${(props) => props.theme.value ? 'whitesmoke' : '#505555'};
-  margin-bottom: 1rem;
-  text-align: center;
-  color: ${(props) => props.theme.card};
-  padding: 0.7rem 1rem;
-  max-height: 4rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  transition: all 0.3s;
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
 const CardBody = styled.div`
   padding: 1rem;
-`;
-
-const WrapperButton = styled.div`
-  margin: 1rem auto;
 `;
 
 const Wrapper = styled.div`
