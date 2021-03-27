@@ -58,6 +58,6 @@ const Wrapper = styled.div`
     text-align: center;
     max-height: 15rem;
     overflow-y: auto;
-    color: #9b9b9b;
+    color: ${(props) => props.theme.text};
   }
 `;

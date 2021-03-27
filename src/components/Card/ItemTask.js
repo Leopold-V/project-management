@@ -15,7 +15,7 @@ export const ItemTask = ({ task, index, updateState, deleteTask }) => {
 
   return (
     <Draggable draggableId={task.id} index={index}>
-      {(provided, snapshot) => (
+      {provided => (
         <>
           <Item
             id={task.id}

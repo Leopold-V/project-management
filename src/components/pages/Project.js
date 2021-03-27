@@ -12,6 +12,7 @@ export const Project = (props) => {
 
   return (
     <ContainerSection>
+      <ContainerCardTask key={id} pid={id} />
       <ContainerCard>
       <Card>
         <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</h2>
@@ -19,7 +20,7 @@ export const Project = (props) => {
         <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
       </Card>
       </ContainerCard>
-      <ContainerCardTask key={id} pid={id} />
+      
     </ContainerSection>
   );
 };

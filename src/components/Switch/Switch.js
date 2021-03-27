@@ -20,7 +20,7 @@ const Switch = () => {
 const StyledLabel = styled.label`
   display: block;
   width: 60px;
-  height: 30px;
+  height: 20px;
   position: relative;
   margin: 0 1rem;
   .switch input {

@@ -29,7 +29,7 @@ export const CardStyled = styled.div`
   }
   & > p,
   div {
-    color: #9b9b9b;
+    color: ${(props) => props.theme.text};
   }
   & > a,
   a:link,

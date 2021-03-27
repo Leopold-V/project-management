@@ -13,6 +13,7 @@ export const switchSlice = createSlice({
       state.value = !state.value;
       state.background = state.value ? '#030111' : '#ebecf0';
       state.card = state.value ? '#27262b' : 'whitesmoke';
+      state.text = state.value ? '#9b9b9b' : '#3a3a3a';
     },
   },
 });
