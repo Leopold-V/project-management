@@ -17,8 +17,8 @@ export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid 
         <h4>{title}</h4>
       </CardHeader>
       <Droppable droppableId={title} type="task">
-        {(provided, snapshot) => (
-          <CardBody ref={provided.innerRef} {...provided.droppableProps} isDraggingOver={snapshot.isDraggingOver}>
+        {provided => (
+          <CardBody ref={provided.innerRef} {...provided.droppableProps}>
             {tasks.map((ele, i) => (
               <ItemTask key={ele.id} task={ele} updateState={updateState} deleteTask={deleteTask} index={i} />
             ))}
@@ -48,7 +48,7 @@ const CardHeader = styled.div`
 
 const CardBody = styled.div`
   padding: 1rem;
-  min-height: 5rem;
+  min-height: 15rem;
 `;
 
 const CardTaskStyled = styled.div`

@@ -1,4 +1,4 @@
-import { removeOneTask } from '../utils/tasks';
+import { removeTaskById } from '../utils/tasks';
 
 export const useTasksInState = (state, setState) => {
 	const addState = (task) => {
@@ -11,7 +11,7 @@ export const useTasksInState = (state, setState) => {
 	};
 		
 	const updateState = (task) => {
-		const changeTasks = removeOneTask(state, task.progression, task.id);
+		const changeTasks = removeTaskById(state, task.progression, task.id);
 		changeTasks.push(task);
 		setState({
 			...state,
@@ -20,7 +20,7 @@ export const useTasksInState = (state, setState) => {
 	};
 	
 	const deleteTask = (task) => {
-		const changeTasks = removeOneTask(state, task.progression, task.id);
+		const changeTasks = removeTaskById(state, task.progression, task.id);
 		setState({
 			...state,
 			[task.progression]: changeTasks,

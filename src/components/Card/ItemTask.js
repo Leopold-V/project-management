@@ -21,10 +21,9 @@ export const ItemTask = ({ task, index, updateState, deleteTask }) => {
             id={task.id}
             onClick={toggle}
             theme={theme}
+            ref={provided.innerRef}
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            ref={provided.innerRef}
-            isDragging={snapshot.isDragging}
           >
             {task.name}
           </Item>
@@ -56,7 +55,7 @@ const Item = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: opacity 0.3s;
   &:hover {
     opacity: 0.8;
   }
