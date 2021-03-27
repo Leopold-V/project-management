@@ -36,7 +36,7 @@ const particleParams = {
     move: {
       random: false,
       speed: .1,
-      direction: 'top',
+      direction: 'bottom',
       out_mode: 'out',
     },
   },

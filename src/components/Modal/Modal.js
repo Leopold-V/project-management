@@ -1,7 +1,8 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import { motion } from 'framer-motion';
 import { ButtonIcon } from '../Button';
 
 export const Modal = ({ show, toggle, type, who, children }) => {
@@ -18,7 +19,12 @@ export const Modal = ({ show, toggle, type, who, children }) => {
 
   return (
     <Wrapper onClick={handleClose}>
-      <ModalStyled>
+      <ModalStyled
+        transition={{ duration: .3 }}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        key={who}
+      >
         <WrapperButton>
           <ButtonIcon onClick={toggle}>
             <i className="fas fa-times-circle fa-2x"></i>
@@ -62,18 +68,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const opening = keyframes`
-    0% {
-        transform: scale(0);
-	    opacity: 0;
-    }
-    100% {
-        transform: scale(1);
-	    opacity: 1;
-    }
-`;
-
-const ModalStyled = styled.div`
+const ModalStyled = styled(motion.div)`
   position: relative;
   background-color: #27262b;
   color: white;
@@ -89,5 +84,4 @@ const ModalStyled = styled.div`
   text-align: center;
   min-height: 20rem;
   z-index: 3000;
-  animation: ${opening} 0.4s;
-`;
+  `;

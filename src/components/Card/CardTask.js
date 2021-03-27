@@ -58,7 +58,7 @@ const CardHeader = styled.div`
 
 const CardBody = styled.div`
   padding: 1rem;
-  min-height: 10rem;
+  min-height: 5rem;
 `;
 
 const CardTaskStyled = styled.div`
@@ -72,7 +72,6 @@ const CardTaskStyled = styled.div`
   margin: 0 1rem;
   margin-bottom: 2rem;
   width: 20rem;
-  min-height: 30rem;
   transition: all 0.3s;
   overflow: hidden;
   &:hover {
