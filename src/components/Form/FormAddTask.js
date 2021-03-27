@@ -1,17 +1,16 @@
 import React, { useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
 import { fetchAddTask } from '../../actions/actionsTasks';
 import getCurrentUser from '../../utils/user';
 
-import { ButtonSmall } from '../Button';
-import { Input, InputGroup, Icon, Form } from '../Form';
+import { ButtonInput } from '../Button';
+import { Input, InputGroup, Form } from '../Form';
 
 export const FormAddTask = ({ pid, title, addState }) => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.tasks.loading);
 
   const ref_name = useRef(null);
 
@@ -37,14 +36,12 @@ export const FormAddTask = ({ pid, title, addState }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>New task :</h2>
       <InputGroup>
-        <Icon className="fas fa-signature"></Icon>
+      <ButtonInput className="transparent" style={{marginRight: '.2rem', textAlign: 'center'}}>
+        <i className="fas fa-plus"></i>
+      </ButtonInput>
         <Input ref={ref_name} type="text" name="name" placeholder="Task name" />
       </InputGroup>
-      <ButtonSmall style={{ margin: '2rem auto' }}>
-        {loading ? 'loading...' : <i className="fas fa-plus-circle fa-2x"></i>}
-      </ButtonSmall>
     </Form>
   );
 };

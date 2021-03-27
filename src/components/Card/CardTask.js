@@ -4,15 +4,10 @@ import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Droppable } from 'react-beautiful-dnd';
 
-import { useModal } from '../../hooks/useModal';
-
-import { ButtonSmall } from '../Button';
 import { FormAddTask } from '../Form';
-import { Modal } from '../Modal';
 import { ItemTask } from './ItemTask';
 
 export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid }) => {
-  const [show, toggle] = useModal();
 
   const theme = useSelector((state) => state.switch);
 
@@ -31,12 +26,7 @@ export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid 
           </CardBody>
         )}
       </Droppable>
-      <ButtonSmall style={{ margin: '1rem auto' }} onClick={toggle} className="transparent" id={title}>
-        <i className="fas fa-plus-circle fa-2x" id={title}></i>
-      </ButtonSmall>
-      <Modal show={show} toggle={toggle} who={title}>
-        <FormAddTask pid={pid} title={title} addState={addState} />
-      </Modal>
+      <FormAddTask pid={pid} title={title} addState={addState} />
     </CardTaskStyled>
   );
 };
