@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { DragDropContext } from 'react-beautiful-dnd';
 
+import { tasksSelector } from '../../slices/sliceTasks';
 import { fetchUpdateTask } from '../../actions/actionsTasks';
 
 import { removeOneTask } from '../../utils/tasks';
@@ -8,8 +10,6 @@ import { useTasksInState } from '../../hooks/useTasksInState';
 
 import { ContainerCard } from '../Container';
 import { CardTask } from '../Card';
-import { tasksSelector } from '../../slices/sliceTasks';
-import { DragDropContext } from 'react-beautiful-dnd';
 
 export const ContainerCardTask = ({ pid }) => {
   const dispatch = useDispatch();

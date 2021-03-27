@@ -5,7 +5,7 @@ import toast from 'react-hot-toast';
 import { auth } from '../../firebase';
 
 import { Container, ContainerForm } from '../Container';
-import { ParticlesBackground } from '../particles';
+import { ParticlesBackground } from '../Particles';
 import { BlockLeft, FormAuth, TitleMain, WrapperTitle } from '../Form/FormAuth';
 import { InputGroup, Input, Icon, ButtonForm } from '../Form';
 

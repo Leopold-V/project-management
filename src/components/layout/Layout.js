@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { ContainerLayout, ContainerMain } from '../Container';
-import { ParticlesBackground } from '../particles';
+import { ParticlesBackground } from '../Particles';
 import { Headbar } from './Headbar';
 import { SideBar } from './SideBar';
 import { useLocation } from 'react-router';
