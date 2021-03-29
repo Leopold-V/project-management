@@ -6,6 +6,7 @@ import { Droppable } from 'react-beautiful-dnd';
 
 import { FormAddTask } from '../Form';
 import { ItemTask } from './ItemTask';
+import { TitleSecondary } from '../Typography';
 
 export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid }) => {
 
@@ -14,7 +15,7 @@ export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid 
   return (
     <CardTaskStyled theme={theme}>
       <CardHeader theme={theme}>
-        <h4>{title}</h4>
+        <TitleSecondary>{title}</TitleSecondary>
       </CardHeader>
       <Droppable droppableId={title} type="task">
         {provided => (
@@ -63,9 +64,9 @@ const CardTaskStyled = styled.div`
   transition: all 0.3s;
   overflow: hidden;
   &:hover {
-    border: 2px solid ${(props) => (props.theme.value ? '#01b075' : 'transparent')};
+    border: 2px solid ${(props) => (props.theme.value ? '#01b075' : '#01b075')};
     box-shadow: ${(props) =>
-      props.theme.value ? '0rem 0rem 0.5rem rgba(70, 207, 122)' : '0rem .3rem .4rem rgba(0, 0, 0, .3)'};
+      props.theme.value ? '0rem 0rem 0.5rem rgba(70, 207, 122)' : '0rem 0rem 0.5rem rgba(70, 207, 122)'};
   }
   & > p {
     max-height: 15rem;

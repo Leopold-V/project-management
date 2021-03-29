@@ -34,7 +34,6 @@ export const ContainerHeadBar = styled.div`
   border-radius: 5px;
   padding: 0 2rem;
   margin: 1.3rem 2rem;
-  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   background-color: ${(props) => props.theme.card};
   color: ${(props) => (!props.theme.value ? '#030111' : 'white')};
 `;
@@ -55,7 +54,7 @@ export const ContainerCard = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 1rem;
+  margin: .5rem 1rem;
 `;
 
 export const ContainerForm = styled.div`

@@ -8,6 +8,7 @@ import { Container, ContainerForm } from '../Container';
 import { ParticlesBackground } from '../Particles';
 import { BlockLeft, FormAuth, TitleMain, WrapperTitle } from '../Form/FormAuth';
 import { InputGroup, Input, Icon, ButtonForm } from '../Form';
+import { MainTitle, TitlePrimary } from '../Typography';
 
 export const Register = () => {
   let history = useHistory();
@@ -62,14 +63,14 @@ export const Register = () => {
             Welcome on <span style={{ color: '#46cf7a' }}>OpenBoard</span>
           </TitleMain>
           <img width="110" src="./tasks.svg" alt="tasks_image" />
-          <h2>Already member ?</h2>
+          <TitlePrimary>Already member ?</TitlePrimary>
           <ButtonForm onClick={redirectToLogin} className="transparent">
             login
           </ButtonForm>
         </BlockLeft>
         <FormAuth onSubmit={handleSubmit}>
           <WrapperTitle>
-            <h1>Sign up</h1>
+            <MainTitle>Sign up</MainTitle>
           </WrapperTitle>
           <InputGroup>
             <Icon className="fas fa-user"></Icon>

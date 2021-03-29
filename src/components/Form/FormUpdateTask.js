@@ -7,6 +7,7 @@ import { fetchUpdateTask } from '../../actions/actionsTasks';
 
 import { Button } from '../Button';
 import { Input, InputGroup, Icon, Form } from '.';
+import { TitlePrimary } from '../Typography';
 
 export const FormUpdateTask = ({ task, updateState }) => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ export const FormUpdateTask = ({ task, updateState }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>Update :</h2>
+      <TitlePrimary>Update :</TitlePrimary>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input type="text" name="name" placeholder="Task name" onChange={handleChange} value={input} />

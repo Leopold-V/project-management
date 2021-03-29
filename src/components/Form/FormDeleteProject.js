@@ -6,6 +6,7 @@ import { fetchDeleteProject } from '../../actions/actionsProjects';
 
 import { Button, ButtonGroup } from '../Button';
 import { Form } from '../Form';
+import { TitlePrimary } from '../Typography';
 
 export const FormDeleteProject = ({ toggle, pid }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,7 @@ export const FormDeleteProject = ({ toggle, pid }) => {
 
   return (
     <Form>
-      <h2>Are you sure to delete this project ?</h2>
+      <TitlePrimary>Are you sure to delete this project ?</TitlePrimary>
       <ButtonGroup>
         <Button color="danger" style={{ margin: '1rem' }} onClick={handleSubmit}>
           Yes

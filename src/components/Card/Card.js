@@ -20,7 +20,7 @@ export const CardStyled = styled.div`
   margin: 1rem 1rem;
   min-width: 8rem;
   color: ${(props) => (!props.theme.value ? '#030111' : 'white')};
-  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
+  box-shadow: ${(props) => props.theme.shadow};
   transition: all 0.3s;
   &:hover {
     border: 2px solid ${(props) => (props.theme.value ? '#01b075' : 'transparent')};

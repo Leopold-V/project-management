@@ -11,6 +11,7 @@ import { Button } from '../Button';
 import { Modal } from '../Modal';
 import { FormAddProject } from '../Form';
 import { WrapperTransition } from '../Container/WrapperTransition';
+import { Text, TitleSecondary } from '../Typography';
 
 export const Home = () => {
   const projects = useSelector(projectsSelector);
@@ -22,15 +23,15 @@ export const Home = () => {
     <ContainerSection>
       <ContainerCard>
         <Card>
-          <h4>Create a new project</h4>
-          <p>A new project is add to your dashboard, fill informations, track and manage your tasks list.</p>
+          <TitleSecondary>Create a new project</TitleSecondary>
+          <Text>A new project is add to your dashboard, fill informations, track and manage your tasks list.</Text>
           <Button onClick={toggle}>
             <i className="fas fa-plus-circle"></i>&nbsp;Create
           </Button>
         </Card>
         <Card>
-          <h4>Inspiration</h4>
-          <ul>
+          <TitleSecondary>Inspiration</TitleSecondary>
+          <ul style={{textAlign: 'center', listStyle: 'none'}}>
             <li>
               <a href="https://github.com/florinpop17/app-ideas">florinpop17 project ideas list</a>
             </li>

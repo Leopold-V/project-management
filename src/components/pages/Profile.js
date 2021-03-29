@@ -6,6 +6,7 @@ import getCurrentUser from '../../utils/user';
 import { ContainerCard, ContainerSection } from '../Container';
 import { Card } from '../Card/Card';
 import { WrapperTransition } from '../Container/WrapperTransition';
+import { TitlePrimary } from '../Typography';
 
 export const Profile = () => {
   const user = getCurrentUser();
@@ -15,7 +16,7 @@ export const Profile = () => {
     <ContainerSection>
       <ContainerCard>
         <Card>
-          <h2>Profile :</h2>
+          <TitlePrimary>Profile :</TitlePrimary>
           <List>
             <li>
               <span style={{ fontWeight: 'bold' }}>Id : </span>

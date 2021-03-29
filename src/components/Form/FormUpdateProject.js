@@ -8,6 +8,7 @@ import { fetchUpdateProject } from '../../actions/actionsProjects';
 
 import { Button } from '../Button';
 import { Input, InputGroup, TextArea, Icon, Form } from '../Form';
+import { TitlePrimary } from '../Typography';
 
 export const FormUpdateProject = ({ pid }) => {
   const dispatch = useDispatch();
@@ -45,7 +46,7 @@ export const FormUpdateProject = ({ pid }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>Edit :</h2>
+      <TitlePrimary>Edit :</TitlePrimary>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input type="text" name="name" placeholder="Project name" value={input.name} onChange={handleChange} />

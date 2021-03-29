@@ -2,26 +2,47 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 import { tasksSelector } from '../../slices/sliceTasks';
 
 import { TableActions } from '../Table/TableActions';
+import { Text, TitleSecondary } from '../Typography';
 
 export const CardProjectDashboard = ({ id, name, resume, tech }) => {
 
   const theme = useSelector((state) => state.switch);
   const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
 
+  const data01 = [
+    { name: 'Todo', value: tasksProject.filter((ele) => ele.progression === 'todo').length},
+    { name: 'In progress', value: tasksProject.filter((ele) => ele.progression === 'in progress').length},
+    { name: 'Completed', value: tasksProject.filter((ele) => ele.progression === 'completed').length},
+  ]
+
+  const colorsPie = ['#d0ed57', '#a4de6c', '#82ca9d'];
+
   return (
     <Wrapper theme={theme}>
       <BlocLeft>
-        <h4 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</h4>
+        <TitleSecondary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</TitleSecondary>
         <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
-        <p>{resume}</p>
-        <p>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length} / {tasksProject.length} </p>
+        <Text>{resume}</Text>
         <TableActions data={{Id: id, Name: name, Tech: tech}} />
       </BlocLeft>
-      <BlocRight>Stats</BlocRight>
+      <BlocRight>
+        <Text>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length * 100} % </Text>
+        <ResponsiveContainer width="100%" height="70%">
+          <PieChart>
+            <Pie data={data01} cx="50%" cy="50%" outerRadius={45} label>
+              {data01.map((ele, i) => (
+                <Cell key={`cells-${i}`} fill={colorsPie[i]} />
+              ))}
+            </Pie>
+            <Tooltip />
+          </PieChart>
+        </ResponsiveContainer>
+      </BlocRight>
     </Wrapper>
   );
 };
@@ -40,7 +61,11 @@ const BlocLeft = styled.div`
 
 const BlocRight = styled.div`
   width: 50%;
-  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 const Wrapper = styled.div`
@@ -52,12 +77,9 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
-  align-items: center;
   margin: 1rem 1rem;
-  margin-bottom: 2rem;
-  min-width: 20rem;
-  //max-width: 25rem;
-  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
+  min-width: 30%;
+  min-height: 15rem;
   transition: all 0.3s;
   &:hover {
     border: 2px solid ${(props) => (props.theme.value ? '#01b075' : 'transparent')};

@@ -6,6 +6,7 @@ import { projectsSelector } from '../../slices/sliceProjects';
 import { Card } from '../Card';
 import { WrapperTransition } from '../Container/WrapperTransition';
 import { NotFound } from './NotFound';
+import { Text, TitlePrimary } from '../Typography';
 
 export const Project = (props) => {
   const id = props.match.params.id;
@@ -22,9 +23,9 @@ export const Project = (props) => {
         <ContainerCardTask key={id} pid={id} />
         <ContainerCard>
           <Card>
-            <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</h2>
-            <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].tech}</p>
-            <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
+            <TitlePrimary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</TitlePrimary>
+            <Text style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].tech}</Text>
+            <Text style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</Text>
           </Card>
         </ContainerCard>
       </ContainerSection>

@@ -14,6 +14,7 @@ import { FormAddProject } from '../Form';
 import { Modal } from '../Modal';
 import { TableActions } from '../Table/TableActions';
 import { WrapperTransition } from '../Container/WrapperTransition';
+import { TitleSecondary } from '../Typography';
 
 export const Dashboard = () => {
   const [show, toggle] = useModal();
@@ -38,7 +39,7 @@ export const Dashboard = () => {
         })}
         <div>
           <Card>
-            <h4>Create a new project</h4>
+            <TitleSecondary>Create a new project</TitleSecondary>
             <Button onClick={toggle}>
               <i className="fas fa-plus-circle"></i>&nbsp;Create
             </Button>

@@ -7,6 +7,7 @@ import getCurrentUser from '../../utils/user';
 
 import { ButtonSmall } from '../Button';
 import { Input, InputGroup, TextArea, Icon, Form } from '../Form';
+import { TitlePrimary } from '../Typography';
 
 export const FormAddProject = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ export const FormAddProject = () => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2>Add a new project :</h2>
+      <TitlePrimary>Add a new project :</TitlePrimary>
       <InputGroup>
         <Icon className="fas fa-signature"></Icon>
         <Input type="text" name="name" placeholder="Project name" value={input.name} onChange={handleChange} />

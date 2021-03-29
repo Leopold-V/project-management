@@ -45,17 +45,18 @@ ItemTask.propTypes = {
 };
 
 const Item = styled.div`
-  background-color: ${(props) => (props.theme.value ? 'whitesmoke' : '#505555')};
+  background-color: #01b075;
   margin-bottom: 1rem;
   text-align: center;
   border-radius: 5px;
-  color: ${(props) => props.theme.card};
+  color: white;
   padding: 0.7rem 1rem;
   max-height: 4rem;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
   transition: opacity 0.3s;
+  box-shadow: 0 0 .3rem rgba(0,0,0,.5);
   &:hover {
     opacity: 0.8;
   }

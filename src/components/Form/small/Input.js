@@ -4,9 +4,9 @@ export const Input = styled.input`
   background: none;
   outline: none;
   border: none;
-  line-height: 1;
   font-weight: 600;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  padding: .9rem .8rem;
   color: #333;
   &::placeholder {
     color: #666;

@@ -20,9 +20,9 @@ export const SideBar = () => {
 
   return (
     <ContainerSideBar theme={theme}>
-      <Title onClick={refreshPage}>
+      <Logo onClick={refreshPage}>
         Open<span>Board</span>
-      </Title>
+      </Logo>
       <Nav>
         <NavList>
           <NavTitle>Main</NavTitle>
@@ -77,10 +77,10 @@ const NavList = styled.ul`
   margin: 4rem 0;
 `;
 
-const Title = styled.h1`
+const Logo = styled.h1`
   font-weight: 900;
   font-size: 2rem;
-  padding: 0.9rem 0;
+  padding: 2.1rem 0;
   text-align: center;
   cursor: pointer;
   & > span {

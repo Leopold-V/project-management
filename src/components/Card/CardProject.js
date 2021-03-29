@@ -5,13 +5,12 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Button } from '../Button';
-import { tasksSelector } from '../../slices/sliceTasks';
+import { TitleSecondary, Text } from '../Typography';
 
 export const CardProject = ({ id, name, resume, tech }) => {
   let history = useHistory();
 
   const theme = useSelector((state) => state.switch);
-  const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
 
   const redirectToProject = () => {
     history.push('/project/' + id);
@@ -19,10 +18,9 @@ export const CardProject = ({ id, name, resume, tech }) => {
 
   return (
     <Wrapper theme={theme}>
-      <h4 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</h4>
+      <TitleSecondary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</TitleSecondary>
       <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
-      <p>{resume}</p>
-      <p>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length} / {tasksProject.length} </p>
+      <Text>{resume}</Text>
       <Button onClick={redirectToProject} className="transparent">
         Open
       </Button>
@@ -51,7 +49,6 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
   min-width: 13rem;
   max-width: 25rem;
-  box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   transition: all 0.3s;
   &:hover {
     border: 2px solid ${(props) => (props.theme.value ? '#01b075' : 'transparent')};
