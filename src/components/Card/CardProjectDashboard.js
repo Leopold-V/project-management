@@ -1,43 +1,47 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { Button } from '../Button';
 import { tasksSelector } from '../../slices/sliceTasks';
 
-export const CardProject = ({ id, name, resume, tech }) => {
-  let history = useHistory();
+import { TableActions } from '../Table/TableActions';
+
+export const CardProjectDashboard = ({ id, name, resume, tech }) => {
 
   const theme = useSelector((state) => state.switch);
   const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
 
-  console.log(tasksProject);
-
-  const redirectToProject = () => {
-    history.push('/project/' + id);
-  };
-
   return (
     <Wrapper theme={theme}>
-      <h4 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</h4>
-      <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
-      <p>{resume}</p>
-      <p>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length} / {tasksProject.length} </p>
-      <Button onClick={redirectToProject} className="transparent">
-        Open
-      </Button>
+      <BlocLeft>
+        <h4 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</h4>
+        <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
+        <p>{resume}</p>
+        <p>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length} / {tasksProject.length} </p>
+        <TableActions data={{Id: id, Name: name, Tech: tech}} />
+      </BlocLeft>
+      <BlocRight>Stats</BlocRight>
     </Wrapper>
   );
 };
 
-CardProject.propTypes = {
+CardProjectDashboard.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   resume: PropTypes.string.isRequired,
   tech: PropTypes.string.isRequired,
 };
+
+const BlocLeft = styled.div`
+  width: 50%;
+  text-align: center;
+`
+
+const BlocRight = styled.div`
+  width: 50%;
+  text-align: center;
+`
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.card};
@@ -46,13 +50,13 @@ const Wrapper = styled.div`
   border-radius: 5px;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: start;
   align-items: center;
-  margin: 0 1rem;
+  margin: 1rem 1rem;
   margin-bottom: 2rem;
-  min-width: 13rem;
-  max-width: 25rem;
+  min-width: 20rem;
+  //max-width: 25rem;
   box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   transition: all 0.3s;
   &:hover {

@@ -9,7 +9,7 @@ import { formatTableProject } from '../../utils/projects';
 
 import { Button } from '../Button';
 import { ContainerCard, ContainerSection } from '../Container';
-import { Card } from '../Card';
+import { Card, CardProjectDashboard } from '../Card';
 import { FormAddProject } from '../Form';
 import { Modal } from '../Modal';
 import { TableActions } from '../Table/TableActions';
@@ -30,15 +30,22 @@ export const Dashboard = () => {
 
   return (
     <ContainerSection>
-      <h2>Dashboard</h2>
+      <ContainerCard>
+        {projects.map((ele) => {
+          return <CardProjectDashboard key={ele.id} id={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />;
+        })}
+        <div>
+          <Card>
+            <h4>Create a new project</h4>
+            <Button onClick={toggle}>
+              <i className="fas fa-plus-circle"></i>&nbsp;Create
+            </Button>
+          </Card>
+        </div>
+      </ContainerCard>
       <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} sortable />
       <ContainerCard>
-        <Card>
-          <h4>Create a new project</h4>
-          <Button onClick={toggle}>
-            <i className="fas fa-plus-circle"></i>&nbsp;Create
-          </Button>
-        </Card>
+
       </ContainerCard>
       <Modal show={show} toggle={toggle}>
         <FormAddProject />

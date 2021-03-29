@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { tasksSelector } from '../../slices/sliceTasks';
@@ -58,10 +59,21 @@ export const ContainerCardTask = ({ pid }) => {
   return (
     <ContainerCard>
       <DragDropContext onDragEnd={onDragEnd}>
-        <CardTask title="Todo" tasks={state.todo} pid={pid} {...propsCardTask} />
-        <CardTask title="In progress" tasks={state['in progress']} pid={pid} {...propsCardTask} />
-        <CardTask title="Completed" tasks={state.completed} pid={pid} {...propsCardTask} />
+        <Wrapper>
+          <CardTask title="Todo" tasks={state.todo} pid={pid} {...propsCardTask} />
+        </Wrapper>
+        <Wrapper>
+          <CardTask title="In progress" tasks={state['in progress']} pid={pid} {...propsCardTask} />
+        </Wrapper>
+        <Wrapper>
+          <CardTask title="Completed" tasks={state.completed} pid={pid} {...propsCardTask} />
+        </Wrapper>
       </DragDropContext>
     </ContainerCard>
   );
 };
+
+
+const Wrapper = styled.div`
+  height: 100%;
+`

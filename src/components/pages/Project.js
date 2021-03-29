@@ -14,11 +14,11 @@ export const Project = (props) => {
     <ContainerSection>
       <ContainerCardTask key={id} pid={id} />
       <ContainerCard>
-      <Card>
-        <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</h2>
-        <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].tech}</p>
-        <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
-      </Card>
+        <Card>
+          <h2 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</h2>
+          <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].tech}</p>
+          <p style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</p>
+        </Card>
       </ContainerCard>
       
     </ContainerSection>

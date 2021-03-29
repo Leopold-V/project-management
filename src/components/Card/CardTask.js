@@ -41,8 +41,6 @@ CardTask.propTypes = {
 };
 
 const CardHeader = styled.div`
-  //background-color: ${(props) => props.theme.card};
-  //box-shadow: ${(props) => props.theme.value ? 'none' : '0rem 0rem 1rem rgba(255, 255, 255, .7)'};
   text-align: center;
 `;
 
