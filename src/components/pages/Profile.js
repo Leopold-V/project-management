@@ -11,9 +11,9 @@ export const Profile = () => {
 
   return (
     <ContainerSection>
-      <h2>Profile</h2>
       <ContainerCard>
         <Card>
+          <h2>Profile :</h2>
           <List>
             <li>
               <span style={{ fontWeight: 'bold' }}>Id : </span>
@@ -22,10 +22,6 @@ export const Profile = () => {
             <li>
               <span style={{ fontWeight: 'bold' }}>Email : </span>
               {user.email}
-            </li>
-            <li>
-              <span style={{ fontWeight: 'bold' }}>Username : </span>
-              {user.username}
             </li>
           </List>
         </Card>

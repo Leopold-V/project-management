@@ -5,10 +5,15 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Button } from '../Button';
+import { tasksSelector } from '../../slices/sliceTasks';
 
 export const CardProject = ({ id, name, resume, tech }) => {
   let history = useHistory();
+
   const theme = useSelector((state) => state.switch);
+  const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
+
+  console.log(tasksProject);
 
   const redirectToProject = () => {
     history.push('/project/' + id);
@@ -19,6 +24,7 @@ export const CardProject = ({ id, name, resume, tech }) => {
       <h4 style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</h4>
       <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
       <p>{resume}</p>
+      <p>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length} / {tasksProject.length} </p>
       <Button onClick={redirectToProject} className="transparent">
         Open
       </Button>

@@ -18,10 +18,10 @@ export const Layout = ({ children }) => {
         <Headbar />
         <AnimatePresence exitBeforeEnter>
             <motion.div
-              transition={{ duration: 0.5 }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0 }}
+              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               key={location.pathname}
             >
               {children}

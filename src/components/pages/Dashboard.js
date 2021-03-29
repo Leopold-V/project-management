@@ -16,6 +16,9 @@ import { TableActions } from '../Table/TableActions';
 
 export const Dashboard = () => {
   const [show, toggle] = useModal();
+
+  const projects = useSelector(projectsSelector);
+
   const additionalCols = [
     {
       header: 'Actions',
@@ -23,7 +26,6 @@ export const Dashboard = () => {
     },
   ];
 
-  const projects = useSelector(projectsSelector);
   const data = formatTableProject(projects);
 
   return (

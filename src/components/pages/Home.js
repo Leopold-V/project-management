@@ -18,7 +18,6 @@ export const Home = () => {
 
   return (
     <ContainerSection>
-      <h2>Home</h2>
       <ContainerCard>
         <Card>
           <h4>Create a new project</h4>
@@ -39,7 +38,6 @@ export const Home = () => {
           </ul>
         </Card>
       </ContainerCard>
-      <h3>Your project{projects.length > 0 ? 's' : ''} :</h3>
       <ContainerCard>
         {projects.map((ele) => {
           return <CardProject key={ele.id} id={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />;
