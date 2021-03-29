@@ -1,14 +1,24 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation } from 'react-router';
 
 import { ContainerLayout, ContainerMain } from '../Container';
 import { ParticlesBackground } from '../Particles';
 import { Headbar } from './Headbar';
 import { SideBar } from './SideBar';
-import { useLocation } from 'react-router';
 
 export const Layout = ({ children }) => {
   let location = useLocation();
+
+  const paths = ['/', '/dashboard', '/profile']
+
+  if (paths.indexOf(location.pathname) === -1 && !location.pathname.match(/^\/project/))  {
+    return (
+        <>
+        {console.log(location)}
+          {children}
+        </>
+      );
+  }
  
   return (
     <ContainerLayout>
@@ -16,17 +26,7 @@ export const Layout = ({ children }) => {
       <ContainerMain>
         <ParticlesBackground />
         <Headbar />
-        <AnimatePresence exitBeforeEnter>
-            <motion.div
-              transition={{ duration: 0.3 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              key={location.pathname}
-            >
-              {children}
-            </motion.div>
-        </AnimatePresence>
+          {children}
       </ContainerMain>
     </ContainerLayout>
   );

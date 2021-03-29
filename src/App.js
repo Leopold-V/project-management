@@ -67,19 +67,21 @@ function App() {
   return (
     <Provider store={store}>
       <BrowserRouter>
+        <Layout>
           <Toaster position="bottom-center" reverseOrder={true} />
           <Switch>
-            <Route exact path="/" render={() => (currentUser ?<Layout><Home /></Layout> : <Redirect to="/login" />)} />
-            <Route path="/login" render={() => (currentUser ? <Layout><Redirect to="/" /></Layout> : <Login />)} />
-            <Route path="/register" render={() => (currentUser ? <Layout><Redirect to="/" /></Layout> : <Register />)} />
+            <Route exact path="/" render={() => (currentUser ?<Home /> : <Redirect to="/login" />)} />
+            <Route path="/login" render={() => (currentUser ? <Redirect to="/" /> : <Login />)} />
+            <Route path="/register" render={() => (currentUser ? <Redirect to="/" /> : <Register />)} />
             <Route
-              path="/project/:id"
-              render={(props) => (currentUser ? <Layout><Project {...props} /></Layout> : <Redirect to="/login" />)}
+              exact path="/project/:id"
+              render={(props) => (currentUser ? <Project {...props} /> : <Redirect to="/login" />)}
             />
-            <Route path="/dashboard" render={() => (currentUser ? <Layout><Dashboard /></Layout> : <Redirect to="/login" />)} />
-            <Route path="/profile" render={() => (currentUser ? <Layout><Profile /></Layout> : <Redirect to="/login" />)} />
+            <Route path="/dashboard" render={() => (currentUser ? <Dashboard /> : <Redirect to="/login" />)} />
+            <Route path="/profile" render={() => (currentUser ? <Profile /> : <Redirect to="/login" />)} />
             <Route render={() => (currentUser ? <NotFound /> : <Redirect to="/login" />)} />
           </Switch>
+        </Layout>
       </BrowserRouter>
     </Provider>
   );
