@@ -16,17 +16,31 @@ import { Profile } from './components/pages/Profile';
 import { Login } from './components/pages/Login';
 import { Register } from './components/pages/Register';
 import { NotFound } from './components/pages/NotFound';
+import { Container } from './components/Container';
 
 function App() {
   const [currentUser, setcurrentUser] = useState(false);
   const [loading, setloading] = useState(true);
+  const [error, setError] = useState('');
 
   const fetchData = (user) => {
     store
       .dispatch(fetchProjects(user))
-      .then(() => store.dispatch(fetchTasks(user)))
-      .then(() => setloading(false))
-      .catch((err) => console.log(err));
+      .then((result) => {
+        if (result?.error) {
+          setError(result.payload);
+          return result.payload;
+        };
+        return store.dispatch(fetchTasks(user));
+      })
+      .then((result) => {
+        if (result?.error) {
+          setError(result.payload);
+          setloading(false);
+          return result.payload;
+        };
+        setloading(false);
+      });
   };
 
   useEffect(() => {
@@ -44,6 +58,10 @@ function App() {
 
   if (loading) {
     return <div>Loading application...</div>;
+  }
+
+  if (error) {
+    return <Container>Error : {error}, this can be a server error, refresh or retry later.</Container>;
   }
 
   return (
