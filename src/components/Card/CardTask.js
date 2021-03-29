@@ -48,11 +48,11 @@ const CardHeader = styled.div`
 
 const CardBody = styled.div`
   padding: 1rem;
-  min-height: 15rem;
+  min-height: 2rem;
 `;
 
 const CardTaskStyled = styled.div`
-  background-color: ${(props) => props.theme.card};
+  //background-color: ${(props) => props.theme.card};
   color: ${(props) => (!props.theme.value ? '#030111' : 'white')};
   border: 2px solid transparent;
   border-radius: 5px;

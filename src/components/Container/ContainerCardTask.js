@@ -4,6 +4,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 
 import { tasksSelector } from '../../slices/sliceTasks';
 import { fetchUpdateTask } from '../../actions/actionsTasks';
+import { calculPosition } from '../../utils/tasks';
 
 import { useTasksInState } from '../../hooks/useTasksInState';
 
@@ -23,17 +24,17 @@ export const ContainerCardTask = ({ pid }) => {
   
   const propsCardTask = useTasksInState(state, setState); // addState, updateState, deleteState
 
-  const moveSameList = (state, source, startIndex, endIndex) => {
-    const [removed] = state[source].splice(startIndex, 1);
-    state[source].splice(endIndex, 0, removed);
+  const moveSameList = (state, newPosition, sourcetype, startIndex, endIndex) => {
+    const [removed] = state[sourcetype].splice(startIndex, 1);
+    state[sourcetype].splice(endIndex, 0, {...removed, position: newPosition});
     return state;
   };
 
-  const moveBetweenList = (state, sourcetype, destinationtype, startIndex, endIndex) => {
+  const moveBetweenList = (state, newPosition, sourcetype, destinationtype, startIndex, endIndex) => {
     const [removed] = state[sourcetype].splice(startIndex, 1);
-    state[destinationtype].splice(endIndex, 0, {...removed, progression: destinationtype});
+    state[destinationtype].splice(endIndex, 0, {...removed, position: newPosition, progression: destinationtype});
     return state;
-  }
+  };
 
   const onDragEnd = (result) => {
     const { destination, source } = result;
@@ -42,13 +43,16 @@ export const ContainerCardTask = ({ pid }) => {
 
     const src_id = source.droppableId.toLowerCase();
     const dest_id = destination.droppableId.toLowerCase();
+    if (dest_id === src_id && destination.index === source.index) return;
 
+    const newPosition = calculPosition(state, dest_id, destination.index);
     if (dest_id === src_id) {
-      setState(moveSameList(state, src_id, source.index, destination.index));
+      setState(moveSameList(state, newPosition, src_id, source.index, destination.index));
     } else {
-      setState(moveBetweenList(state, src_id, dest_id, source.index, destination.index));
+      setState(moveBetweenList(state, newPosition, src_id, dest_id, source.index, destination.index));
     }
-    //dispatch(fetchUpdateTask(newTask));
+    const newTask = {...state[dest_id][destination.index], progression: dest_id, position: newPosition};
+    dispatch(fetchUpdateTask(newTask));
   };
 
   return (

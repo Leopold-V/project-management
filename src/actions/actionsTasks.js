@@ -9,7 +9,7 @@ export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async (user, { re
     querySnapshot.forEach((doc) => {
       task.push({ id: doc.id, ...doc.data() });
     });
-    return task;
+    return task.sort((a, b) => a.position - b.position);
   } catch (error) {
     return rejectWithValue(error.code);
   }

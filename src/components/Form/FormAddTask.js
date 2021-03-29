@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
@@ -8,9 +8,12 @@ import getCurrentUser from '../../utils/user';
 
 import { ButtonInput } from '../Button';
 import { Input, InputGroup, Form } from '../Form';
+import { tasksSelector } from '../../slices/sliceTasks';
 
 export const FormAddTask = ({ pid, title, addState }) => {
   const dispatch = useDispatch();
+
+  const tasks = useSelector(tasksSelector);
 
   const ref_name = useRef(null);
 
@@ -27,6 +30,7 @@ export const FormAddTask = ({ pid, title, addState }) => {
       progression: title.toLowerCase(),
       projectId: pid,
       userId: getCurrentUser().uid,
+      position: Math.max(...tasks.map((ele) => (ele.position))) + 1000
     };
     dispatch(fetchAddTask(newTask)).then((result) => {
       addState(result.payload);
