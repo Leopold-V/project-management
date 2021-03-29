@@ -13,8 +13,6 @@ export const CardProject = ({ id, name, resume, tech }) => {
   const theme = useSelector((state) => state.switch);
   const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
 
-  console.log(tasksProject);
-
   const redirectToProject = () => {
     history.push('/project/' + id);
   };

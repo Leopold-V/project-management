@@ -5,11 +5,13 @@ import getCurrentUser from '../../utils/user';
 
 import { ContainerCard, ContainerSection } from '../Container';
 import { Card } from '../Card/Card';
+import { WrapperTransition } from '../Container/WrapperTransition';
 
 export const Profile = () => {
   const user = getCurrentUser();
 
   return (
+    <WrapperTransition>
     <ContainerSection>
       <ContainerCard>
         <Card>
@@ -27,6 +29,7 @@ export const Profile = () => {
         </Card>
       </ContainerCard>
     </ContainerSection>
+    </WrapperTransition>
   );
 };
 

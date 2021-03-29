@@ -10,6 +10,7 @@ import { Card, CardProject } from '../Card';
 import { Button } from '../Button';
 import { Modal } from '../Modal';
 import { FormAddProject } from '../Form';
+import { WrapperTransition } from '../Container/WrapperTransition';
 
 export const Home = () => {
   const projects = useSelector(projectsSelector);
@@ -17,6 +18,7 @@ export const Home = () => {
   const [show, toggle] = useModal();
 
   return (
+    <WrapperTransition>
     <ContainerSection>
       <ContainerCard>
         <Card>
@@ -43,10 +45,12 @@ export const Home = () => {
           return <CardProject key={ele.id} id={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />;
         })}
       </ContainerCard>
+      
 
       <Modal show={show} toggle={toggle}>
         <FormAddProject />
       </Modal>
     </ContainerSection>
+    </WrapperTransition>
   );
 };

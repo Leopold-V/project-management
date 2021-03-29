@@ -13,6 +13,7 @@ import { Card, CardProjectDashboard } from '../Card';
 import { FormAddProject } from '../Form';
 import { Modal } from '../Modal';
 import { TableActions } from '../Table/TableActions';
+import { WrapperTransition } from '../Container/WrapperTransition';
 
 export const Dashboard = () => {
   const [show, toggle] = useModal();
@@ -29,6 +30,7 @@ export const Dashboard = () => {
   const data = formatTableProject(projects);
 
   return (
+    <WrapperTransition>
     <ContainerSection>
       <ContainerCard>
         {projects.map((ele) => {
@@ -51,5 +53,6 @@ export const Dashboard = () => {
         <FormAddProject />
       </Modal>
     </ContainerSection>
+    </WrapperTransition>
   );
 };
