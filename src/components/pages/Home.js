@@ -31,7 +31,7 @@ export const Home = () => {
           </Card>
           <Card>
             <TitleSecondary>Inspiration</TitleSecondary>
-            <ul style={{ textAlign: 'center', listStyle: 'none' }}>
+            <ul style={{ textAlign: 'center', listStyle: 'none'}}>
               <li>
                 <a href="https://github.com/florinpop17/app-ideas">florinpop17 project ideas list</a>
               </li>

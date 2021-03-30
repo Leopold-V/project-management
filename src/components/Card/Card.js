@@ -27,6 +27,9 @@ export const CardStyled = styled.div`
     box-shadow: ${(props) =>
       props.theme.value ? '0rem 0rem 0.5rem rgba(70, 207, 122)' : '0rem .3rem .4rem rgba(0, 0, 0, .3)'};
   }
+  & > h1, h2 {
+    padding: 1rem 0;
+  }
   & > p,
   div {
     color: ${(props) => props.theme.text};

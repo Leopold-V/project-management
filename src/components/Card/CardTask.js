@@ -58,7 +58,6 @@ const CardTaskStyled = styled.div`
   flex-direction: column;
   justify-content: start;
   margin: 0 1rem;
-  margin-bottom: 2rem;
   width: 20rem;
   transition: all 0.3s;
   overflow: hidden;

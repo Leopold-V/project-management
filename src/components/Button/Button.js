@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 const color = {
   primary: '#01b075',
+  secondary: '#06d6f1',
   danger: '#e63225',
 };
 
