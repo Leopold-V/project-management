@@ -27,10 +27,10 @@ export const Headbar = () => {
       <Switch />
       <User>
         <div>{getCurrentUser()?.email}</div>
-        <ButtonSmall onClick={redirectToProfile}>
+        <ButtonSmall light onClick={redirectToProfile}>
           <i className="fas fa-user-edit"></i>
         </ButtonSmall>
-        <ButtonSmall onClick={handleLogout}>
+        <ButtonSmall light onClick={handleLogout}>
           <i className="fas fa-sign-out-alt "></i>
         </ButtonSmall>
       </User>

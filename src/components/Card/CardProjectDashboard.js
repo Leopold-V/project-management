@@ -6,7 +6,6 @@ import { PieChart, Pie, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 import { tasksSelector } from '../../slices/sliceTasks';
 
-import { TableActions } from '../Table/TableActions';
 import { Text, TitleSecondary } from '../Typography';
 
 export const CardProjectDashboard = ({ id, name, resume, tech }) => {
@@ -14,7 +13,7 @@ export const CardProjectDashboard = ({ id, name, resume, tech }) => {
   const theme = useSelector((state) => state.switch);
   const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
 
-  const data01 = [
+  const dataTasks = [
     { name: 'Todo', value: tasksProject.filter((ele) => ele.progression === 'todo').length},
     { name: 'In progress', value: tasksProject.filter((ele) => ele.progression === 'in progress').length},
     { name: 'Completed', value: tasksProject.filter((ele) => ele.progression === 'completed').length},
@@ -26,22 +25,24 @@ export const CardProjectDashboard = ({ id, name, resume, tech }) => {
     <Wrapper theme={theme}>
       <BlocLeft>
         <TitleSecondary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</TitleSecondary>
-        <div style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</div>
-        <Text>{resume}</Text>
-        <TableActions data={{Id: id, Name: name, Tech: tech}} />
+        <Text theme={theme} style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</Text>
+        <Text theme={theme}>{resume}</Text>
       </BlocLeft>
       <BlocRight>
+      {tasksProject.length > 0 &&
+        <>
         <Text>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length * 100} % </Text>
-        <ResponsiveContainer width="100%" height="70%">
+        <ResponsiveContainer width="100%" height="80%">
           <PieChart>
-            <Pie data={data01} cx="50%" cy="50%" outerRadius={45} label>
-              {data01.map((ele, i) => (
+            <Pie data={dataTasks} cx="50%" cy="50%" outerRadius={45} label>
+              {dataTasks.map((ele, i) => (
                 <Cell key={`cells-${i}`} fill={colorsPie[i]} />
               ))}
             </Pie>
             <Tooltip />
           </PieChart>
         </ResponsiveContainer>
+      </>}
       </BlocRight>
     </Wrapper>
   );
@@ -93,3 +94,7 @@ const Wrapper = styled.div`
     color: ${(props) => props.theme.text};
   }
 `;
+
+Wrapper.propTypes = {
+  theme: PropTypes.object.isRequired,
+};

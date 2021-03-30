@@ -25,7 +25,7 @@ export const Home = () => {
         <Card>
           <TitleSecondary>Create a new project</TitleSecondary>
           <Text>A new project is add to your dashboard, fill informations, track and manage your tasks list.</Text>
-          <Button onClick={toggle}>
+          <Button light onClick={toggle}>
             <i className="fas fa-plus-circle"></i>&nbsp;Create
           </Button>
         </Card>

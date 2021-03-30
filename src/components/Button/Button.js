@@ -14,11 +14,11 @@ export const Button = styled.button`
   border: none;
   outline: none;
   border-radius: 5px;
-  padding: 0.6rem 1rem;
+  padding: 0.6rem 1.2rem;
   background-color: ${(props) => color[props.color]};
   color: white;
-  font-weight: 600;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 16px;
   cursor: pointer;
   box-shadow: ${(props) => (props.light ? '0rem 0rem .5rem' + color[props.color] : 'none')};
   transition: all 0.2s;

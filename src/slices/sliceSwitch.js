@@ -7,6 +7,7 @@ export const switchSlice = createSlice({
     color: '#01b075',
     background: '#030111',
     card: '#27262b',
+    text: '#9b9b9b'
   },
   reducers: {
     change: (state) => {

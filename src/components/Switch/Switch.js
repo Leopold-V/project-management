@@ -22,11 +22,13 @@ const StyledLabel = styled.label`
   width: 60px;
   height: 20px;
   position: relative;
-  margin: 0 1rem;
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
+  }
+  input#slider {
+    display: none;
   }
   .slider {
     position: absolute;
@@ -36,7 +38,6 @@ const StyledLabel = styled.label`
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: 0.4s;
     transition: 0.4s;
   }
   .slider:before {
@@ -49,10 +50,9 @@ const StyledLabel = styled.label`
     top: 0;
     bottom: 0;
     margin: auto 0;
-    -webkit-transition: 0.4s;
     transition: 0.4s;
     box-shadow: 0 0px 15px #2020203d;
-    background: white url('./moon.svg');
+    background: white;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -63,10 +63,8 @@ const StyledLabel = styled.label`
     box-shadow: 0 0 1px #2196f3;
   }
   input:checked + .slider:before {
-    -webkit-transform: translateX(28px);
-    -ms-transform: translateX(28px);
     transform: translateX(28px);
-    background: white url('./sun.svg');
+    background: white;
     background-repeat: no-repeat;
     background-position: center;
   }

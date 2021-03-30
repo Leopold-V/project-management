@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 export const MainTitle = styled.h1`
     padding: 2rem 0;
@@ -13,5 +14,10 @@ export const TitleSecondary = styled.h4`
 `
 
 export const Text = styled.p`
-    padding: .5rem;
+    padding: .8rem;
+    color: ${(props) => props.theme.text};
 `
+
+Text.propTypes = {
+    theme: PropTypes.object,
+  };

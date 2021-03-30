@@ -40,7 +40,7 @@ export const Dashboard = () => {
         <div>
           <Card>
             <TitleSecondary>Create a new project</TitleSecondary>
-            <Button onClick={toggle}>
+            <Button light onClick={toggle}>
               <i className="fas fa-plus-circle"></i>&nbsp;Create
             </Button>
           </Card>

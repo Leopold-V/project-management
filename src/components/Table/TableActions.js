@@ -12,11 +12,11 @@ export const TableActions = ({ data }) => {
 
   return (
     <ButtonGroup>
-      <ButtonSmall onClick={toggle} id={data.Id} data-type="edit">
+      <ButtonSmall light onClick={toggle} id={data.Id} data-type="edit">
         <i className="fas fa-edit" id={data.Id} data-type="edit"></i>
       </ButtonSmall>
       <span> &nbsp; </span>
-      <ButtonSmall color="danger" onClick={toggle} id={data.Id} data-type="delete">
+      <ButtonSmall light color="danger" onClick={toggle} id={data.Id} data-type="delete">
         <i className="fas fa-trash-alt" id={data.Id} data-type="delete"></i>
       </ButtonSmall>
       <Modal show={show} toggle={toggle} who={data.Id} type="edit">
