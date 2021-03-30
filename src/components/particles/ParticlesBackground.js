@@ -23,7 +23,7 @@ const particleParams = {
       value: 200,
       density: {
         enable: true,
-        value_area: 789.1476416322727
+        value_area: 789.1476416322727,
       },
     },
     size: {
@@ -35,7 +35,7 @@ const particleParams = {
     },
     move: {
       random: false,
-      speed: .1,
+      speed: 0.1,
       direction: 'bottom',
       out_mode: 'out',
     },

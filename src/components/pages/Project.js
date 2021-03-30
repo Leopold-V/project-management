@@ -14,7 +14,7 @@ export const Project = (props) => {
   const projects = useSelector((state) => projectsSelector(state).filter((ele) => ele.id === id));
 
   if (projects.length === 0) {
-    return <NotFound />
+    return <NotFound />;
   }
 
   return (
@@ -23,7 +23,9 @@ export const Project = (props) => {
         <ContainerCardTask key={id} pid={id} />
         <ContainerCard>
           <Card>
-            <TitlePrimary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].name}</TitlePrimary>
+            <TitlePrimary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>
+              {projects[0] && projects[0].name}
+            </TitlePrimary>
             <Text style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].tech}</Text>
             <Text style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{projects[0] && projects[0].resume}</Text>
           </Card>

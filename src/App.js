@@ -30,7 +30,7 @@ function App() {
         if (result?.error) {
           setError(result.payload);
           return result.payload;
-        };
+        }
         return store.dispatch(fetchTasks(user));
       })
       .then((result) => {
@@ -38,7 +38,7 @@ function App() {
           setError(result.payload);
           setloading(false);
           return result.payload;
-        };
+        }
         setloading(false);
       });
   };
@@ -70,11 +70,12 @@ function App() {
         <Layout>
           <Toaster position="bottom-center" reverseOrder={true} />
           <Switch>
-            <Route exact path="/" render={() => (currentUser ?<Home /> : <Redirect to="/login" />)} />
+            <Route exact path="/" render={() => (currentUser ? <Home /> : <Redirect to="/login" />)} />
             <Route path="/login" render={() => (currentUser ? <Redirect to="/" /> : <Login />)} />
             <Route path="/register" render={() => (currentUser ? <Redirect to="/" /> : <Register />)} />
             <Route
-              exact path="/project/:id"
+              exact
+              path="/project/:id"
               render={(props) => (currentUser ? <Project {...props} /> : <Redirect to="/login" />)}
             />
             <Route path="/dashboard" render={() => (currentUser ? <Dashboard /> : <Redirect to="/login" />)} />

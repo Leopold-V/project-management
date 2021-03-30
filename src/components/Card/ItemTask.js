@@ -15,7 +15,7 @@ export const ItemTask = ({ task, index, updateState, deleteTask }) => {
 
   return (
     <Draggable draggableId={task.id} index={index}>
-      {provided => (
+      {(provided) => (
         <>
           <Item
             id={task.id}
@@ -56,7 +56,7 @@ const Item = styled.div`
   text-overflow: ellipsis;
   cursor: pointer;
   transition: opacity 0.3s;
-  box-shadow: 0 0 .3rem rgba(0,0,0,.5);
+  box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
   &:hover {
     opacity: 0.8;
   }

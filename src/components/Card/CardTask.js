@@ -9,7 +9,6 @@ import { ItemTask } from './ItemTask';
 import { TitleSecondary } from '../Typography';
 
 export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid }) => {
-
   const theme = useSelector((state) => state.switch);
 
   return (
@@ -18,7 +17,7 @@ export const CardTask = ({ title, tasks, addState, updateState, deleteTask, pid 
         <TitleSecondary>{title}</TitleSecondary>
       </CardHeader>
       <Droppable droppableId={title} type="task">
-        {provided => (
+        {(provided) => (
           <CardBody ref={provided.innerRef} {...provided.droppableProps}>
             {tasks.map((ele, i) => (
               <ItemTask key={ele.id} task={ele} updateState={updateState} deleteTask={deleteTask} index={i} />

@@ -9,24 +9,24 @@ import { SideBar } from './SideBar';
 export const Layout = ({ children }) => {
   let location = useLocation();
 
-  const paths = ['/', '/dashboard', '/profile']
+  const paths = ['/', '/dashboard', '/profile'];
 
-  if (paths.indexOf(location.pathname) === -1 && !location.pathname.match(/^\/project/))  {
+  if (paths.indexOf(location.pathname) === -1 && !location.pathname.match(/^\/project/)) {
     return (
-        <>
+      <>
         {console.log(location)}
-          {children}
-        </>
-      );
+        {children}
+      </>
+    );
   }
- 
+
   return (
     <ContainerLayout>
       <SideBar />
       <ContainerMain>
         <ParticlesBackground />
         <Headbar />
-          {children}
+        {children}
       </ContainerMain>
     </ContainerLayout>
   );

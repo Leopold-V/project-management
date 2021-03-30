@@ -9,15 +9,14 @@ import { tasksSelector } from '../../slices/sliceTasks';
 import { Text, TitleSecondary } from '../Typography';
 
 export const CardProjectDashboard = ({ id, name, resume, tech }) => {
-
   const theme = useSelector((state) => state.switch);
-  const tasksProject = useSelector(state => tasksSelector(state).filter((ele) => ele.projectId === id));
+  const tasksProject = useSelector((state) => tasksSelector(state).filter((ele) => ele.projectId === id));
 
   const dataTasks = [
-    { name: 'Todo', value: tasksProject.filter((ele) => ele.progression === 'todo').length},
-    { name: 'In progress', value: tasksProject.filter((ele) => ele.progression === 'in progress').length},
-    { name: 'Completed', value: tasksProject.filter((ele) => ele.progression === 'completed').length},
-  ]
+    { name: 'Todo', value: tasksProject.filter((ele) => ele.progression === 'todo').length },
+    { name: 'In progress', value: tasksProject.filter((ele) => ele.progression === 'in progress').length },
+    { name: 'Completed', value: tasksProject.filter((ele) => ele.progression === 'completed').length },
+  ];
 
   const colorsPie = ['#d0ed57', '#a4de6c', '#82ca9d'];
 
@@ -25,24 +24,30 @@ export const CardProjectDashboard = ({ id, name, resume, tech }) => {
     <Wrapper theme={theme}>
       <BlocLeft>
         <TitleSecondary style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{name}</TitleSecondary>
-        <Text theme={theme} style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>{tech}</Text>
+        <Text theme={theme} style={{ overflowWrap: 'anywhere', textAlign: 'center' }}>
+          {tech}
+        </Text>
         <Text theme={theme}>{resume}</Text>
       </BlocLeft>
       <BlocRight>
-      {tasksProject.length > 0 &&
-        <>
-        <Text>Progression : {tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length * 100} % </Text>
-        <ResponsiveContainer width="100%" height="80%">
-          <PieChart>
-            <Pie data={dataTasks} cx="50%" cy="50%" outerRadius={45} label>
-              {dataTasks.map((ele, i) => (
-                <Cell key={`cells-${i}`} fill={colorsPie[i]} />
-              ))}
-            </Pie>
-            <Tooltip />
-          </PieChart>
-        </ResponsiveContainer>
-      </>}
+        {tasksProject.length > 0 && (
+          <>
+            <Text>
+              Progression :{' '}
+              {(tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length) * 100} %{' '}
+            </Text>
+            <ResponsiveContainer width="100%" height="80%">
+              <PieChart>
+                <Pie data={dataTasks} cx="50%" cy="50%" outerRadius={45} label>
+                  {dataTasks.map((ele, i) => (
+                    <Cell key={`cells-${i}`} fill={colorsPie[i]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </PieChart>
+            </ResponsiveContainer>
+          </>
+        )}
       </BlocRight>
     </Wrapper>
   );
@@ -58,7 +63,7 @@ CardProjectDashboard.propTypes = {
 const BlocLeft = styled.div`
   width: 50%;
   text-align: center;
-`
+`;
 
 const BlocRight = styled.div`
   width: 50%;
@@ -67,7 +72,7 @@ const BlocRight = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Wrapper = styled.div`
   background-color: ${(props) => props.theme.card};

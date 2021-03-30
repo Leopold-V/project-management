@@ -30,7 +30,7 @@ export const FormAddTask = ({ pid, title, addState }) => {
       progression: title.toLowerCase(),
       projectId: pid,
       userId: getCurrentUser().uid,
-      position: Math.max(...tasks.map((ele) => (ele.position))) + 1000
+      position: Math.max(...tasks.map((ele) => ele.position)) + 1000,
     };
     dispatch(fetchAddTask(newTask)).then((result) => {
       addState(result.payload);
@@ -41,9 +41,9 @@ export const FormAddTask = ({ pid, title, addState }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <InputGroup>
-      <ButtonInput className="transparent" style={{marginRight: '.2rem', textAlign: 'center'}}>
-        <i className="fas fa-plus"></i>
-      </ButtonInput>
+        <ButtonInput className="transparent" style={{ marginRight: '.2rem', textAlign: 'center' }}>
+          <i className="fas fa-plus"></i>
+        </ButtonInput>
         <Input ref={ref_name} type="text" name="name" placeholder="Task name" />
       </InputGroup>
     </Form>

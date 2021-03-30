@@ -20,7 +20,7 @@ export const Modal = ({ show, toggle, type, who, children }) => {
   return (
     <Wrapper onClick={handleClose}>
       <ModalStyled
-        transition={{ duration: .3 }}
+        transition={{ duration: 0.3 }}
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         key={who}
@@ -84,4 +84,4 @@ const ModalStyled = styled(motion.div)`
   text-align: center;
   min-height: 20rem;
   z-index: 3000;
-  `;
+`;

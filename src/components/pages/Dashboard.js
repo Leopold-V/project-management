@@ -32,28 +32,28 @@ export const Dashboard = () => {
 
   return (
     <WrapperTransition>
-    <ContainerSection>
-      <ContainerCard>
-        {projects.map((ele) => {
-          return <CardProjectDashboard key={ele.id} id={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />;
-        })}
-        <div>
-          <Card>
-            <TitleSecondary>Create a new project</TitleSecondary>
-            <Button light onClick={toggle}>
-              <i className="fas fa-plus-circle"></i>&nbsp;Create
-            </Button>
-          </Card>
-        </div>
-      </ContainerCard>
-      <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} sortable />
-      <ContainerCard>
-
-      </ContainerCard>
-      <Modal show={show} toggle={toggle}>
-        <FormAddProject />
-      </Modal>
-    </ContainerSection>
+      <ContainerSection>
+        <ContainerCard>
+          {projects.map((ele) => {
+            return (
+              <CardProjectDashboard key={ele.id} id={ele.id} name={ele.name} resume={ele.resume} tech={ele.tech} />
+            );
+          })}
+          <div>
+            <Card>
+              <TitleSecondary>Create a new project</TitleSecondary>
+              <Button light onClick={toggle}>
+                <i className="fas fa-plus-circle"></i>&nbsp;Create
+              </Button>
+            </Card>
+          </div>
+        </ContainerCard>
+        <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} sortable />
+        <ContainerCard></ContainerCard>
+        <Modal show={show} toggle={toggle}>
+          <FormAddProject />
+        </Modal>
+      </ContainerSection>
     </WrapperTransition>
   );
 };

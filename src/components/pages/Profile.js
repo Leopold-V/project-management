@@ -13,23 +13,23 @@ export const Profile = () => {
 
   return (
     <WrapperTransition>
-    <ContainerSection>
-      <ContainerCard>
-        <Card>
-          <TitlePrimary>Profile :</TitlePrimary>
-          <List>
-            <li>
-              <span style={{ fontWeight: 'bold' }}>Id : </span>
-              {user.uid}
-            </li>
-            <li>
-              <span style={{ fontWeight: 'bold' }}>Email : </span>
-              {user.email}
-            </li>
-          </List>
-        </Card>
-      </ContainerCard>
-    </ContainerSection>
+      <ContainerSection>
+        <ContainerCard>
+          <Card>
+            <TitlePrimary>Profile :</TitlePrimary>
+            <List>
+              <li>
+                <span style={{ fontWeight: 'bold' }}>Id : </span>
+                {user.uid}
+              </li>
+              <li>
+                <span style={{ fontWeight: 'bold' }}>Email : </span>
+                {user.email}
+              </li>
+            </List>
+          </Card>
+        </ContainerCard>
+      </ContainerSection>
     </WrapperTransition>
   );
 };

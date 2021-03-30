@@ -54,7 +54,7 @@ export const ContainerCard = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: .5rem 1rem;
+  margin: 0.5rem 1rem;
 `;
 
 export const ContainerForm = styled.div`
