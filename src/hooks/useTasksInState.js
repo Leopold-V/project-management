@@ -10,9 +10,9 @@ export const useTasksInState = (state, setState) => {
     });
   };
 
-  const updateState = (task) => {
+  const updateState = (task, index) => {
     const changeTasks = removeTaskById(state, task.progression, task.id);
-    changeTasks.push(task);
+    changeTasks.splice(index, 0, task);
     setState({
       ...state,
       [task.progression]: changeTasks,
