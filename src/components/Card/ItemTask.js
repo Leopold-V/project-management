@@ -5,7 +5,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import { useModal } from '../../hooks/useModal';
 
-import { FormUpdateTask, FormDeleteTask } from '../Form';
+import { FormUpdateTask, FormDeleteTask, Icon } from '../Form';
 import { Modal } from '../Modal';
 
 export const ItemTask = ({ task, index, updateState, deleteTask }) => {
@@ -26,6 +26,7 @@ export const ItemTask = ({ task, index, updateState, deleteTask }) => {
             {...provided.dragHandleProps}
           >
             {task.name}
+            {task.note.length > 0 && <Icon className="fas fa-comment"></Icon>}
           </Item>
           <Modal show={show} toggle={toggle} who={task.id}>
             <FormUpdateTask task={task} updateState={updateState} />
@@ -45,6 +46,7 @@ ItemTask.propTypes = {
 };
 
 const Item = styled.div`
+  position: relative;
   background-color: #01b075;
   margin-bottom: 1rem;
   text-align: center;
@@ -57,6 +59,13 @@ const Item = styled.div`
   cursor: pointer;
   transition: opacity 0.3s;
   box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.5);
+  & > i {
+    color: white;
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    transform: translate(-50%, 50%);
+  }
   &:hover {
     opacity: 0.8;
   }
