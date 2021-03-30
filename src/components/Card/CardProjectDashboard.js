@@ -30,13 +30,13 @@ export const CardProjectDashboard = ({ id, name, resume, tech }) => {
         <Text theme={theme}>{resume}</Text>
       </BlocLeft>
       <BlocRight>
-        {tasksProject.length > 0 && (
+        {tasksProject.length > 0 ?
           <>
             <Text>
               Progression :{' '}
               {(tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length) * 100} %{' '}
             </Text>
-            <ResponsiveContainer width="100%" height="80%">
+            <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie data={dataTasks} cx="50%" cy="50%" outerRadius={45} label>
                   {dataTasks.map((ele, i) => (
@@ -47,7 +47,16 @@ export const CardProjectDashboard = ({ id, name, resume, tech }) => {
               </PieChart>
             </ResponsiveContainer>
           </>
-        )}
+        : 
+        <>
+          <Text>
+            Progression : 0%
+          </Text>
+          <Text>
+          Let's start ?
+          </Text>
+        </>
+        }
       </BlocRight>
     </Wrapper>
   );
