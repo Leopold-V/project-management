@@ -29,7 +29,7 @@ export const ItemTask = ({ task, index, updateState, deleteTask }) => {
             {task.note.length > 0 && <Icon className="fas fa-comment"></Icon>}
           </Item>
           <Modal show={show} toggle={toggle} who={task.id}>
-            <FormUpdateTask task={task} updateState={updateState} />
+            <FormUpdateTask task={task} updateState={updateState} index={index} />
             <FormDeleteTask toggle={toggle} task={task} deleteTask={deleteTask} />
           </Modal>
         </>

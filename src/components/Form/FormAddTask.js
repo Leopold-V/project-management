@@ -25,12 +25,13 @@ export const FormAddTask = ({ pid, title, addState }) => {
     if (ref_name.current.value.length > 50) {
       return toast.error('Your task name is too long (max 50 char)');
     }
+    const newPosition = tasks.length > 0 ? Math.max(...tasks.map((ele) => ele.position)) + 1000 : 1000;
     const newTask = {
       name: ref_name.current.value,
       progression: title.toLowerCase(),
       projectId: pid,
       userId: getCurrentUser().uid,
-      position: Math.max(...tasks.map((ele) => ele.position)) + 1000,
+      position: newPosition,
       note: '',
     };
     dispatch(fetchAddTask(newTask)).then((result) => {

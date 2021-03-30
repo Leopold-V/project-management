@@ -34,7 +34,7 @@ export const CardProjectDashboard = ({ id, name, resume, tech }) => {
           <>
             <Text>
               Progression :{' '}
-              {(tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length) * 100} %{' '}
+              {Math.round((tasksProject.filter((ele) => ele.progression === 'completed').length / tasksProject.length) * 100)} %{' '}
             </Text>
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>

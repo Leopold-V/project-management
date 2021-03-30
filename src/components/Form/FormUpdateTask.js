@@ -9,7 +9,7 @@ import { Button } from '../Button';
 import { Input, InputGroup, Icon, Form, TextArea } from '.';
 import { TitlePrimary } from '../Typography';
 
-export const FormUpdateTask = ({ task, updateState }) => {
+export const FormUpdateTask = ({ task, updateState, index }) => {
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.tasks.loading);
 
@@ -34,7 +34,7 @@ export const FormUpdateTask = ({ task, updateState }) => {
       return toast.error('Your notes are too long (max 300 char)');
     }
     dispatch(fetchUpdateTask({ ...task, name: input.name, note: input.note })).then(() => {
-      updateState({ ...task, name: input.name, note: input.note });
+      updateState({ ...task, name: input.name, note: input.note }, index);
     });
   };
 
@@ -64,4 +64,5 @@ export const FormUpdateTask = ({ task, updateState }) => {
 FormUpdateTask.propTypes = {
   task: PropTypes.object.isRequired,
   updateState: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
 };
