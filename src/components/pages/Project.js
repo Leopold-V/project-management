@@ -67,7 +67,7 @@ export const Project = (props) => {
           </div>
           <Card>
             <WrapperButton>
-              <Button light color="secondary" onClick={generateMarkdown}>Generate Markdown</Button>
+              <Button light color="danger" onClick={generateMarkdown}>Generate Markdown</Button>
             </WrapperButton>
             <ReactMarkdown plugins={[gfm]} children={markdown} style={{listStyle: 'none'}} />
             {markdown.length > 0 && <Button onClick={setCopied} style={{marginTop: '2rem'}}>

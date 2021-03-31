@@ -18,7 +18,7 @@ export const CardStyled = styled.div`
   justify-content: start;
   align-items: center;
   margin: 1rem 1rem;
-  min-width: 8rem;
+  min-width: 15rem;
   color: ${(props) => (!props.theme.value ? '#030111' : 'white')};
   box-shadow: ${(props) => props.theme.shadow};
   transition: all 0.3s;

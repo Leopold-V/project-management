@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
 import { fetchAddProject } from '../../actions/actionsProjects';
@@ -11,7 +11,6 @@ import { TitlePrimary } from '../Typography';
 
 export const FormAddProject = () => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.projects.loading);
 
   const [input, setInput] = useState({
     name: '',
@@ -76,7 +75,7 @@ export const FormAddProject = () => {
         />
       </InputGroup>
       <ButtonSmall style={{ margin: '0 auto' }}>
-        {loading ? 'loading...' : <i className="fas fa-plus-circle fa-2x"></i>}
+        <i className="fas fa-plus-circle fa-2x"></i>
       </ButtonSmall>
     </Form>
   );

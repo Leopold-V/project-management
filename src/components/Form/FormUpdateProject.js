@@ -12,7 +12,6 @@ import { TitlePrimary } from '../Typography';
 
 export const FormUpdateProject = ({ pid }) => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.projects.loading);
   const project = useSelector((state) => projectsSelector(state).find((project) => project.id === pid));
 
   const [input, setInput] = useState({ ...project });
@@ -66,7 +65,7 @@ export const FormUpdateProject = ({ pid }) => {
           onChange={handleChange}
         />
       </InputGroup>
-      <Button style={{ margin: '0 auto' }}>{loading ? 'loading...' : 'Update'}</Button>
+      <Button style={{ margin: '0 auto' }}>Update</Button>
     </Form>
   );
 };

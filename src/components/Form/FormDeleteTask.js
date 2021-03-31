@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { fetchDeleteTask } from '../../actions/actionsTasks';
@@ -9,7 +9,6 @@ import { Form } from '../Form';
 
 export const FormDeleteTask = ({ toggle, task, deleteTask }) => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.tasks.loading);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +21,7 @@ export const FormDeleteTask = ({ toggle, task, deleteTask }) => {
   return (
     <Form onSubmit={handleSubmit}>
       <Button color="danger" style={{ margin: '0rem auto' }}>
-        {loading ? 'loading...' : 'Delete'}
+        Delete
       </Button>
     </Form>
   );

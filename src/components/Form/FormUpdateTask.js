@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import PropTypes from 'prop-types';
 
@@ -11,7 +11,6 @@ import { TitlePrimary } from '../Typography';
 
 export const FormUpdateTask = ({ task, updateState, index }) => {
   const dispatch = useDispatch();
-  const loading = useSelector((state) => state.tasks.loading);
 
   const [input, setInput] = useState({
     name: task.name,
@@ -56,7 +55,7 @@ export const FormUpdateTask = ({ task, updateState, index }) => {
           onChange={handleChange}
         />
       </InputGroup>
-      <Button style={{ margin: '2rem auto' }}>{loading ? 'loading...' : 'Save'}</Button>
+      <Button style={{ margin: '2rem auto' }}>Save</Button>
     </Form>
   );
 };

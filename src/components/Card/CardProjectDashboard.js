@@ -70,12 +70,12 @@ CardProjectDashboard.propTypes = {
 };
 
 const BlocLeft = styled.div`
-  width: 50%;
+  width: 60%;
   text-align: center;
 `;
 
 const BlocRight = styled.div`
-  width: 50%;
+  width: 40%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: start;
   margin: 1rem 1rem;
-  min-width: 30%;
+  min-width: 70%;
   min-height: 15rem;
   transition: all 0.3s;
   &:hover {

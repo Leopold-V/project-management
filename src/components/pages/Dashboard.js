@@ -33,6 +33,7 @@ export const Dashboard = () => {
   return (
     <WrapperTransition>
       <ContainerSection>
+        <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} sortable />
         <ContainerCard>
           {projects.map((ele) => {
             return (
@@ -48,8 +49,6 @@ export const Dashboard = () => {
             </Card>
           </div>
         </ContainerCard>
-        <ReactFlexyTable className="table-projects" data={data} additionalCols={additionalCols} sortable />
-        <ContainerCard></ContainerCard>
         <Modal show={show} toggle={toggle}>
           <FormAddProject />
         </Modal>
