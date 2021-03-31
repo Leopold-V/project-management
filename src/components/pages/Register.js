@@ -60,7 +60,7 @@ export const Register = () => {
       <ContainerForm>
         <BlockLeft>
           <TitleMain>
-            Welcome on <span style={{ color: '#46cf7a' }}>OpenBoard</span>
+            Welcome on <span style={{ color: '#46cf7a' }}>ProjectBoard</span>
           </TitleMain>
           <img width="110" src="./tasks.svg" alt="tasks_image" />
           <TitlePrimary>Already member ?</TitlePrimary>

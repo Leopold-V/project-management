@@ -21,7 +21,7 @@ export const SideBar = () => {
   return (
     <ContainerSideBar theme={theme}>
       <Logo onClick={refreshPage}>
-        Open<span>Board</span>
+        Project<span>Board</span>
       </Logo>
       <Nav>
         <NavList>
