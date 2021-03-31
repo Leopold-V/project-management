@@ -14,7 +14,6 @@ export const Layout = ({ children }) => {
   if (paths.indexOf(location.pathname) === -1 && !location.pathname.match(/^\/project/)) {
     return (
       <>
-        {console.log(location)}
         {children}
       </>
     );
